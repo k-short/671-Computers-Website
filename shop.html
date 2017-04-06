@@ -17,7 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="navbar-static-top.css" rel="stylesheet">
   </head>
-  
+
   <body>
 
     <!-- Static navbar -->
@@ -53,10 +53,73 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-	
-	<div class="container">
 
-    </div> <!-- /container -->
+
+<!-- Search Panel -->
+ <div class="container">
+   <div class="panel-group" id="accordion">
+     <div id="SearchPanel" class="panel panel-default">
+       <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+         <h5 class="panel-title"> <a class="accordion-toggle"> Search
+           <span class="indicator glyphicon glyphicon-chevron-down pull-right"></span></a></h5>
+       </div>
+       <div class="panel-body collapse" id="collapseOne">
+         <div class="col-lg-4 col-md-4">
+           Price
+           <br />
+           <div class="form-group">
+             <select class="form-control" id="priceSearch"></select>
+           </div> <!-- Price Search -->
+           <br />
+           Computer Type
+           <br />
+           <div class="form-group">
+             <select class="form-control" id="computerType"></select>
+           </div> <!-- Computer Type Search -->
+         </div>
+         <div class="col-lg-4 col-md-4">
+           Weight
+           <br />
+           <div class="form-group">
+             <select class="form-control" id="weightSearch"></select>
+           </div> <!-- Weight Search -->
+           <br />
+           Memory
+           <br />
+           <div class="form-group">
+             <select class="form-control" id="memorySearch"></select>
+           </div> <!-- Memory Search -->
+         </div>
+         <div class="col-lg-4 col-md-4">
+           Size
+           <br />
+           <div class="form-group">
+             <select class="form-control" id="sizeSearch"></select>
+           </div> <!-- Size Search -->
+           Disk Type
+           <br />
+           <div class="form-group">
+             <select class="form-control" id="diskType">
+               <option>Hard Disk Drive</option>
+               <option>Solid State Drive</option>
+             </select>
+           </div> <!-- Disk Type Search -->
+           <br />
+           Disk Capacity
+           <div class="form-group">
+             <select class="form-control" id="diskCapacity"></select>
+           </div> <!-- Disk Capacity Search -->
+           <br />
+           <input type="button" id="searchBtn" class="btn btn-info" value="Search" />
+         </div>
+       </div> <!-- Panel Body -->
+     </div>
+   </div> <!-- Accordion Panel group -->
+ </div> <!-- Container -->
+
+ <div class="container">
+
+ </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
