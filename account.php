@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php  session_start(); ?> 
+
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -22,6 +24,13 @@
   
   <body>
 
+	<?php
+      if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
+       {
+           header("Location:Login.php");  
+       }
+	?>
+  
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -32,23 +41,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">671 Computers</a>
+          <a class="navbar-brand" href="index.php">671 Computers</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="about.php">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-			<li class="active"><a href="">Wishlist</a></li>
+			<li><a href="wishlist.php">Wishlist</a></li>
 			<li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['use'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="account.html">Update Info</a></li>
+                <li><a href="">Update Info</a></li>
                 <li><a href="#">Order History</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
               </ul>
             </li>
           </ul>

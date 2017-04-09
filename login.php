@@ -1,3 +1,39 @@
+<?php  session_start(); ?> 
+
+<?php
+
+if(isset($_SESSION['use']))   // Checking whether the session is already there or not if 
+                              // true then header redirect it to the home page directly 
+ {
+    header("Location:index.php"); 
+ }
+
+if(isset($_POST['login']))   // it checks whether the user clicked login button or not 
+{
+     $user = $_POST['user'];
+	 $_SESSION['use']=$user;
+	 echo '<script type="text/javascript"> window.open("index.php","_self");</script>';
+	 
+     //$pass = $_POST['pass'];
+
+	 //Use this code when connected to Db, to see if valid user. 
+     /* if($user == "user" )  // username is  set to "user"  and Password   
+         {                                   // is 1234 by default     
+
+          $_SESSION['use']=$user;
+
+
+         echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            //  On Successful Login redirects to home.php
+
+        }
+
+        else
+        {
+            echo "invalid UserName or Password";        
+        }*/
+}
+ ?>
+ 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,12 +59,13 @@
   <body>
 
     <div class="container">
-
+	  <form method="post"  action="">
 		<div class="input-group col-md-4 col-md-offset-4 row.center vertical-center">
-			<input type="text" class="form-control " placeholder="Name" aria-label="...">
+			<input type="text" name="user" class="form-control " placeholder="Name" aria-label="...">
 			<div class="input-group-btn">
 			<!-- Button and dropdown menu -->
-				<button class="btn btn-default" type="button">Login</button>
+				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
+				
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="loginSelBtn" 
 				  aria-haspopup="true" aria-expanded="false">
 				  <span id="dropdown_title"">User</span> <span class="caret"></span></button>
@@ -39,7 +76,7 @@
 				</ul>
 			</div>
 		</div>
-
+	</form>
     </div> <!-- /container -->
 
 
