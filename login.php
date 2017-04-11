@@ -13,26 +13,25 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 	include 'validUser.php';
 	
      $user = $_POST['user'];
-	 $login = $_POST['userType'];
-	 $_SESSION['use']=$user;
-	 //echo '<script type="text/javascript"> window.open("index.php","_self");</script>';
 	 
-     //$pass = $_POST['pass'];
-
 	 //Use this code when connected to Db, to see if valid user. 
-        if(isValid($login, $user))  // username is  set to "user"  and Password   
+        if(isValid($user) == 0)  // username is  set to "user"  and Password   
          {                                   // is 1234 by default     
-
           $_SESSION['use']=$user;
+		  $_SESSION['useType']="customer";
 
-		//  On Successful Login redirects to home.php
-         echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            
-
+		  //  On Successful Login redirects to home.php
+          echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            
         }
-
+		else if(isValid($user) == 1){
+			$_SESSION['use']=$user;
+			$_SESSION['useType']="admin";
+			
+			echo '<script type="text/javascript"> window.open("admin.php","_self");</script>';  
+		}
         else
         {
-            echo "invalid UserName or Password";        
+            echo "Invalid username.";        
         }
 }
  ?>
@@ -69,9 +68,9 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 			<!-- Button and dropdown menu -->
 				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
 				
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="loginSelBtn" 
-				  aria-haspopup="true" aria-expanded="false" name="userType">
-				  <span id="dropdown_title"">User</span> <span class="caret"></span></button>
+				<button class="btn btn-default dropdown-toggle" name="userType" type="submit" value="HELLO" 
+				data-toggle="dropdown" id="loginSelBtn" aria-haspopup="true" aria-expanded="false">
+				  <span id="dropdown_title">User</span> <span class="caret"></span></button>
 			
 				<ul id="divNewNotifications" class="dropdown-menu">
 					<li ><a>User</a></li>

@@ -1,5 +1,5 @@
 <?php 
-function isValid($loginType, $username) {
+function isValid($login) {
 
 	$servername = "localhost";
 	$username = "root";
@@ -13,30 +13,30 @@ function isValid($loginType, $username) {
      		die("Connection failed: " . $conn->connect_error);
 	}
 
-	if ($loginType=="Admin"){
-		$relationName="admin";
-		$attribName="aID";
-	}
-
-	else	//login type==user
-	{
-		$relationName="Customer";
-		$attribName="cID";
-	}	
+	//Customer parameters
+	$relationName="Customer";
+	$attribName="cID";
 	
 	$sql="SELECT * FROM " . $relationName . " WHERE " . $attribName . "=" .$login;
 	$result = mysqli_query($conn, $sql);
-
-	if (mysqli_num_rows($result)  > 0) {
-		$validUser=true;
+	if(!$result){
+		$relationName="Admin";
+		$attribName="aID";
+		
+		$sql="SELECT * FROM " . $relationName . " WHERE " . $attribName . "=" .$login;
+		$result = mysqli_query($conn, $sql);
+		
+		if(!$result){
+			return -1;
+		}
+		else{
+			return 1;
+		}
+		
+	}else{
+		return 0;
 	}
-	else{
-		$validUser=false;
-	};
-
-	return validUser;
 }
-
 
 ?> 
 

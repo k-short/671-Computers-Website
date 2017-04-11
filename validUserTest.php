@@ -1,5 +1,5 @@
 <?php
-//function isValid($loginType, $username) {
+//function isValid($loginType, $login) {
 
 	$servername = "localhost";
 	$username = "root";
