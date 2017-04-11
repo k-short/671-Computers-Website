@@ -10,27 +10,30 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
 
 if(isset($_POST['login']))   // it checks whether the user clicked login button or not 
 {
+	include 'validUser.php';
+	
      $user = $_POST['user'];
+	 $login = $_POST['userType'];
 	 $_SESSION['use']=$user;
-	 echo '<script type="text/javascript"> window.open("index.php","_self");</script>';
+	 //echo '<script type="text/javascript"> window.open("index.php","_self");</script>';
 	 
      //$pass = $_POST['pass'];
 
 	 //Use this code when connected to Db, to see if valid user. 
-     /* if($user == "user" )  // username is  set to "user"  and Password   
+        if(isValid($login, $user))  // username is  set to "user"  and Password   
          {                                   // is 1234 by default     
 
           $_SESSION['use']=$user;
 
-
-         echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            //  On Successful Login redirects to home.php
+		//  On Successful Login redirects to home.php
+         echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            
 
         }
 
         else
         {
             echo "invalid UserName or Password";        
-        }*/
+        }
 }
  ?>
  
@@ -67,7 +70,7 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
 				
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="loginSelBtn" 
-				  aria-haspopup="true" aria-expanded="false">
+				  aria-haspopup="true" aria-expanded="false" name="userType">
 				  <span id="dropdown_title"">User</span> <span class="caret"></span></button>
 			
 				<ul id="divNewNotifications" class="dropdown-menu">

@@ -1,4 +1,4 @@
-<?php
+<?php 
 function isValid($loginType, $username) {
 
 	$servername = "localhost";
