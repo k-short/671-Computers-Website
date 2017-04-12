@@ -46,8 +46,11 @@ if (mysqli_num_rows($result)>0){
 	echo"<table><tr> <th>Item Number</th> <th>Style</th> <th>Weight<th/> <th>Measurement</th> <th>Processor</th> <th>Memory</th> <th>Storage</th> <th>Storage Type</th> <th>Price</th> </tr>";  
      // output data of each row
 	while($row = $result->fetch_assoc()) {
+	$price = $row["chPrice"] + $row["storPrice"] + $row["memPrice"];
 	//Not sure if embedding chPrice+storPrice+memPrice here is legal	
-         echo "<tr><td>" . $row["defaultNo"]. "</td><td>" . $row["style"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["measures"]. "</td><td>" . $row["processorSpeed"]. "</td> <td>".$row["memSize"]."</td> <td>".$row["storSize"]. "</td> <td>".$row["storType"]. "</td> <td>".$row["chPrice"] ."</td></tr>";
+         echo "<tr><td>" . $row["defaultNo"]. "</td><td>" . $row["style"]. "</td><td>" . $row["weight"]. 
+		 "</td><td>" . $row["measures"]. "</td><td>" . $row["processorSpeed"]. "</td> <td>".$row["memSize"].
+		 "</td> <td>".$row["storSize"]. "</td> <td>".$row["storType"]. "</td> <td>".$price."</td></tr>";
      }
      echo "</table>";
 } else {
