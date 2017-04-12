@@ -28,15 +28,15 @@ if ($conn->connect_error) {
 } 
 
 $sql = "Select *
-	From DefaultFullInfo
+	From DefaultFullInfo 
 	Where style='".$styleWanted."'".
-	"AND processorSpeed>=".$speedWanted.
-	"AND measures<=".$sizeWanted.
-	"AND weight<=".$weightWanted.
-	"AND storType='".$storTypeWanted."'".
-	"And storSize>=".$storWanted.
-	"AND memSize>=".$memWanted.
-	"AND (chPrice + storPrice + memPrice) <=".$priceWanted.";";
+	" AND processorSpeed>=".$speedWanted.
+	" AND measures<=".$sizeWanted.
+	" AND weight<=".$weightWanted.
+	" AND storType='".$storTypeWanted."'".
+	" And storSize>=".$storWanted.
+	" AND memSize>=".$memoryWanted.
+	" AND (chPrice + storPrice + memPrice) <=".$priceWanted;   
 //$result = $conn->query($sql);
 $result=mysqli_query($conn, $sql);
 
@@ -47,7 +47,7 @@ if (mysqli_num_rows($result)>0){
      // output data of each row
 	while($row = $result->fetch_assoc()) {
 	//Not sure if embedding chPrice+storPrice+memPrice here is legal	
-         echo "<tr><td>" . $row["defaultNo"]. "</td><td>" . $row["style"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["measures"]. "</td><td>" . $row["processorSpeed"]. "</td> <td>".$row["memSize"]."</td> <td>".$["storSize"]. "</td> <td>".["storType"]. "</td> <td>".["chPrice + storPrice + memPrice"] ."</td></tr>";
+         echo "<tr><td>" . $row["defaultNo"]. "</td><td>" . $row["style"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["measures"]. "</td><td>" . $row["processorSpeed"]. "</td> <td>".$row["memSize"]."</td> <td>".$row["storSize"]. "</td> <td>".$row["storType"]. "</td> <td>".$row["chPrice"] ."</td></tr>";
      }
      echo "</table>";
 } else {

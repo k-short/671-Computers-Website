@@ -75,7 +75,8 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 				</ul>
 			</div>
 		</div>
-	</form>
+	  </form>
+	<button class="btn-default">Create new account</button>
     </div> <!-- /container -->
 
 
