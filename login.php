@@ -15,7 +15,8 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
      $user = $_POST['user'];
 	 
 	 //Use this code when connected to Db, to see if valid user. 
-        if(isValid($user) == 0)  // username is  set to "user"  and Password   
+	 $userCall = isvalid($user);
+        if($userCall == 0)  // username is  set to "user"  and Password   
          {                                   // is 1234 by default     
           $_SESSION['use']=$user;
 		  $_SESSION['useType']="customer";
@@ -23,7 +24,7 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 		  //  On Successful Login redirects to home.php
           echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            
         }
-		else if(isValid($user) == 1){
+		else if($userCall == 1){
 			$_SESSION['use']=$user;
 			$_SESSION['useType']="admin";
 			
@@ -67,10 +68,6 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 			<div class="input-group-btn">
 			<!-- Button and dropdown menu -->
 				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
-				
-				<button class="btn btn-default dropdown-toggle" name="userType" type="submit" value="HELLO" 
-				data-toggle="dropdown" id="loginSelBtn" aria-haspopup="true" aria-expanded="false">
-				  <span id="dropdown_title">User</span> <span class="caret"></span></button>
 			
 				<ul id="divNewNotifications" class="dropdown-menu">
 					<li ><a>User</a></li>
@@ -87,6 +84,6 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="javascript.js"></script>
+	<script src="jscript.js"></script>
   </body>
 </html>  

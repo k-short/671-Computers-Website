@@ -17,16 +17,16 @@ function isValid($login) {
 	$relationName="Customer";
 	$attribName="cID";
 	
-	$sql="SELECT * FROM " . $relationName . " WHERE " . $attribName . "=" .$login;
+	$sql="SELECT * FROM " . $relationName . " WHERE " . $attribName . "='" .$login."'";
 	$result = mysqli_query($conn, $sql);
-	if(!$result){
+	if(mysqli_num_rows($result)  == 0){
 		$relationName="Admin";
 		$attribName="aID";
 		
-		$sql="SELECT * FROM " . $relationName . " WHERE " . $attribName . "=" .$login;
+		$sql="SELECT * FROM " . $relationName . " WHERE " . $attribName . "='".$login."'";
 		$result = mysqli_query($conn, $sql);
-		
-		if(!$result){
+
+		if(mysqli_num_rows($result)  == 0){
 			return -1;
 		}
 		else{
