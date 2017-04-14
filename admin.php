@@ -18,17 +18,17 @@
 	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/dashboard.css" rel="stylesheet"> 
+    <link href="bootstrap/css/dashboard.css" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
-	
+
   </head>
-  
+
   <body onLoad="queryAllCustomers()">
-  
+
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
        {
-           header("Location:Login.php");  
+           header("Location:Login.php");
        }
 	?>
 
@@ -101,14 +101,14 @@
                 </tr>
               </thead>
               <tbody id="allCustBody">
-			  
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-	
+
 	<script> queryAllCustomers(); </script>
 
 
@@ -118,6 +118,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="jscript.js" ></script>
-	
+
   </body>
-</html> 
+</html>

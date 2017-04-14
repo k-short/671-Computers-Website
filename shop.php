@@ -1,5 +1,7 @@
 <?php  session_start(); ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,19 +20,20 @@
 	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet"> 
+    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body onLoad="searchResults()">
+  <!--<body>-->
 
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
        {
-           header("Location:Login.php");  
+           header("Location:Login.php");
        }
 	?>
-  
+
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -66,71 +69,165 @@
     </nav>
 
 
-<!-- Search Panel -->
- <div class="container">
-   <div class="panel-group" id="accordion">
-     <div id="SearchPanel" class="panel panel-default">
-       <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-         <h5 class="panel-title"> <a class="accordion-toggle"> Search
-           <span class="indicator glyphicon glyphicon-chevron-down pull-right"></span></a></h5>
-       </div>
-       <div class="panel-body collapse" id="collapseOne">
-         <div class="col-lg-4 col-md-4">
-           Price
-           <br />
-           <div class="form-group">
-             <select class="form-control" id="priceSearch"></select>
-           </div> <!-- Price Search -->
-           <br />
-           Computer Type
-           <br />
-           <div class="form-group">
-             <select class="form-control" id="computerType"></select>
-           </div> <!-- Computer Type Search -->
-         </div>
-         <div class="col-lg-4 col-md-4">
-           Weight
-           <br />
-           <div class="form-group">
-             <select class="form-control" id="weightSearch"></select>
-           </div> <!-- Weight Search -->
-           <br />
-           Memory
-           <br />
-           <div class="form-group">
-             <select class="form-control" id="memorySearch"></select>
-           </div> <!-- Memory Search -->
-         </div>
-         <div class="col-lg-4 col-md-4">
-           Size
-           <br />
-           <div class="form-group">
-             <select class="form-control" id="sizeSearch"></select>
-           </div> <!-- Size Search -->
-           Disk Type
-           <br />
-           <div class="form-group">
-             <select class="form-control" id="diskType">
-               <option>Hard Disk Drive</option>
-               <option>Solid State Drive</option>
-             </select>
-           </div> <!-- Disk Type Search -->
-           <br />
-           Disk Capacity
-           <div class="form-group">
-             <select class="form-control" id="diskCapacity"></select>
-           </div> <!-- Disk Capacity Search -->
-           <br />
-           <input type="button" id="searchBtn" class="btn btn-info" value="Search" />
-         </div>
-       </div> <!-- Panel Body -->
-     </div>
-   </div> <!-- Accordion Panel group -->
- </div> <!-- Container -->
+    <!-- Search Panel -->
+     <div class="container">
+       <form method="post"  action="">
+        <div class="panel-group" id="accordion">
+          <div id="SearchPanel" class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <h5 class="panel-title"> <a class="accordion-toggle"> Search
+                <span class="indicator glyphicon glyphicon-chevron-down pull-right"></span></a></h5>
+            </div>
+            <div class="panel-body collapse" id="collapseOne">
+              <div class="col-lg-4 col-md-4">
+                Max Price
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="priceSearch" name="priceSearchSelected">
+                    <option>500.00</option>
+                    <option>1000.00</option>
+                    <option>1500.00</option>
+                    <option>2000.00</option>
+                  </select>
+                </div> <!-- Price Search -->
+                <br />
+                Computer Type
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="computerType" name="computerTypeSelected">
+                    <option>laptop</option>
+                    <option>tablet</option>
+                    <option>hybrid</option>
+                  </select>
+                </div> <!-- Computer Type Search -->
+              </div>
+              <div class="col-lg-4 col-md-4">
+                Max Weight in Pounds (lbs)
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="weightSearch" name="weightSearchSelected">
+                    <option>1</option>
+                    <option>5</option>
+                    <option>10</option>
+                  </select>
+                </div> <!-- Weight Search -->
+                <br />
+                Minimum  Memory in Gigabyte (GB)
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="memorySearch" name="memorySearchSelected">
+                    <option>2</option>
+                    <option>4</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>16</option>
+                    <option>32</option>
+                  </select>
+                </div> <!-- Memory Search -->
+                <br />
+                Minimum Processor Speed in Gigahertz (GHz)
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="processorSearch" name="processorSearchSelected">
+                    <option>1.0</option>
+                    <option>1.5</option>
+                    <option>2.0</option>
+                    <option>2.5</option>
+                    <option>3.0</option>
+                  </select>
+                </div> <!-- Processor Search -->
+              </div>
+              <div class="col-lg-4 col-md-4">
+                Max Measurement in Inches (In)
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="measurementSearch" name="measurementSearchSelected">
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>14</option>
+                    <option>15</option>
+                  </select>
+                </div> <!-- Measurement Search -->
+                Disk Type
+                <br />
+                <div class="form-group">
+                  <select class="form-control" id="diskType" name="diskTypeSelected">
+                    <option>hard drive</option>
+                    <option>SSD</option>
+                  </select>
+                </div> <!-- Disk Type Search -->
+                <br />
+                Minimum Disk Capacity in Gigabyte (GB)
+                <div class="form-group">
+                  <select class="form-control" id="diskCapacity" name="diskCapacitySelected">
+                    <option>500</option>
+                    <option>800</option>
+                    <option>1000</option>
+                    <option>1600</option>
+                    <option>2000</option>
+                  </select>
+                </div> <!-- Disk Capacity Search -->
+                <br />
+                <input  class="btn btn-info" name="searchCriteria" type="submit" id="searchBtn" value="Search" />
+              </div>
+            </div> <!-- Panel Body -->
+          </div>
+        </div> <!-- Accordion Panel group -->
+      </form> <!-- Form to POST -->
+     </div> <!-- Container -->
 
- <div class="container">
+    <!-- Product Load Container -->
+     <div class="container">
+       <!--<table class="table">-->
+        <div class="table-responsive">
+            <table class="table table-striped">
+            <!--  <thead>
 
- </div>
+
+
+                <tr>
+                  <th>Item Number</th>
+                  <th>Style</th>
+                  <th>Weight</th>
+                  <th>Measurement</th>
+                  <th>Processor</th>
+                  <th>Memory</th>
+                  <th>Storage</th>
+                  <th>Storage Type</th>
+                  <th>Price</th>
+                </tr>-->
+              </thead>
+                <tbody id="searchTablePlace">
+                  <?php
+                  if(isset($_POST['searchCriteria']))   // it checks whether the user clicked search button or not
+                  {
+                  	include 'searchResults.php';
+
+                  		$price = $_POST['priceSearchSelected'];
+                  		$computerType = $_POST['computerTypeSelected'];
+                  		$weight = $_POST['weightSearchSelected'];
+                  		$memory = $_POST['memorySearchSelected'];
+                      $processor = $_POST['processorSearchSelected'];
+                      $measurement = $_POST['measurementSearchSelected'];
+                  		$diskType = $_POST['diskTypeSelected'];
+                  		$diskCapacity = $_POST['diskCapacitySelected'];
+
+                  	  //$results = showDefaults($price, $computerType, $weight, $memory, $processor, $measurement, $diskType, $diskCapacity);
+                      showDefaults($price, $computerType, $weight, $memory, $processor, $measurement, $diskType, $diskCapacity);
+
+
+                      //echo $results;
+                      //echo json_encode($results);
+                  }
+                  ?>
+
+                </tbody>
+            </table> <!-- Table -->
+
+     </div> <!-- Container -->
+
+		 <script> querySearchResults(); </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
