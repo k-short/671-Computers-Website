@@ -23,7 +23,7 @@ $('#divNewNotifications li').on('click', function() {
 			 if(this.readyState == 4 && this.status == 200){
 				 //Put result table into document  at allCustBody spot
 				 document.getElementById("adminTable").innerHTML = this.responseText;
-				 document.getElementById("adminHeader").innerHTML= "Customers";
+				 //document.getElementById("adminHeader").innerHTML= "Customers";
 			 }
 		 };
 		 //Get the query result
@@ -42,7 +42,7 @@ $('#divNewNotifications li').on('click', function() {
 			 if(this.readyState == 4 && this.status == 200){
 				 //Put result table into document  at allCustBody spot
 				 document.getElementById("adminTable").innerHTML = this.responseText;
-				 document.getElementById("adminHeader").innerHTML= "Default Systems";
+				// document.getElementById("adminHeader").innerHTML= "Default Systems";
 			 }
 		 };
 		 //Get the query result

@@ -1,4 +1,4 @@
-<?php  session_start(); ?>
+   <?php  session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,12 +23,13 @@
 
   </head>
 
-  <body>    
+  <body onLoad="queryAllDefaultSystems()"> 
+
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
        {
            header("Location:Login.php");
-       }			  
+       }
 	?>
 
     <!-- Static navbar -->
@@ -52,7 +53,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 			                        <?php echo $_SESSION['name'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="account.php">Update Info</a></li>
+                <li><a href="#">Update Info</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="logout.php" >Logout</a></li>
               </ul>
@@ -68,91 +69,22 @@
           <ul class="nav nav-sidebar">
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
-            <li ><a href="defaultSystems.php">Default Systems</a></li>
+            <li ><a href="#">Default Systems</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">
 		    <li role="separator" class="nav-divider"></li>
-			<li><a href="#">Add Default System</a></li>
+			<li><a href="addDefault.php">Add Default System</a></li>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!--<h1 class="page-header">Dashboard</h1> -->
 
-          <h2 class="sub-header" id="adminHeader">Add new default system</h2>
-		  <form method="post"  action="">
-			<!--<div class="panel-group" id="accordion">
-            <div id="SearchPanel" class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-              <h5 class="panel-title"> <a class="accordion-toggle"> Search
-                <span class="indicator glyphicon glyphicon-chevron-down pull-right"></span></a></h5>
-            </div>
-            <div class="panel-body collapse" id="collapseOne">-->
-              <div class="col-lg-4 col-md-4">
-			   <br>
-                Chassis Type 
-                </br>
-                <div class="form-group">
-                  <select class="form-control" id="chassisType" name="chassisType">
-                    <option>L700</option>
-                    <option>H900</option>
-                    <option>T300</option>
-                  </select>
-                </div> <!-- Price Search -->
-                <br>
-                Storage Type 
-                </br>
-                <div class="form-group">
-                  <select class="form-control" id="storageType" name="storageType">
-                    <option>hard drive</option>
-                    <option>SSD</option>
-                  </select>
-                </div> <!-- Computer Type Search -->
-				<br>
-                Memory Size (GB)  
-                </br>
-                <div class="form-group">
-                  <select class="form-control" id="memorySize" name="memorySize">
-                    <option>2</option>
-                    <option>4</option>
-                    <option>6</option>
-					<option>8</option>
-					<option>16</option>
-					<option>32</option>
-                  </select>
-                </div>
-				<br>
-                Disk Size (GB)
-                </br>
-                <div class="form-group">
-                  <select class="form-control" id="diskSize" name="diskSize">
-                    <option>500</option>
-                    <option>800</option>
-                    <option>1000</option>
-					<option>1600</option>
-					<option>2000</option>
-                  </select>
-                </div>
-				<br>
-                <input  class="btn btn-info" name="addButton" type="submit" id="addButton" value="Add System" />
-				</br>
-				<br> <h4 class="sub-header" id="defaultSuccess">
-				<?php
-				if(isset($_POST['addButton']))   // it checks whether the user clicked search button or not
-                  {
-                  	include 'newDefault.php';
+          <h2 class="sub-header" id="adminHeader">Default Systems</h2>
+          <div class="table-responsive">
+            <table  id="adminTable" class="table table-striped">
 
-                  		$chassis = $_POST['chassisType'];
-                  		$storage = $_POST['storageType'];
-                  		$memory = $_POST['memorySize'];
-                  		$disk = $_POST['diskSize'];
-
-                  	  //$results = showDefaults($price, $computerType, $weight, $memory, $processor, $measurement, $diskType, $diskCapacity);
-                      addDefault($chassis, $memory, $storage, $disk);
-				  }
-				?>
-				</h4></br>
-              </div>
-      </form> <!-- Form to POST -->
+            </table>
+          </div>
         </div>
       </div>
     </div>

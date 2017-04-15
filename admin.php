@@ -51,9 +51,9 @@
           <ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-			                        <?php echo $_SESSION['use'];?> <span class="caret"></span></a>
+			                        <?php echo $_SESSION['name'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="account.php">Update Info</a></li>
+                <li><a href="#">Update Info</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="logout.php" >Logout</a></li>
               </ul>
@@ -79,7 +79,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!--<h1 class="page-header">Dashboard</h1> -->
 
-          <h2 class="sub-header" id="adminHeader">Welcome admin, <?php echo $_SESSION['use'];?></h2>
+          <h2 class="sub-header" id="adminHeader">Welcome admin, <?php echo $_SESSION['name'];?></h2>
           <div class="table-responsive">
             <table  id="adminTable" class="table table-striped">
 

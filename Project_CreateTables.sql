@@ -146,7 +146,8 @@ insert into Memory values (6, 300.00, 500, 50);
 insert into Memory values (8, 400.00, 500, 50);
 insert into Memory values (3, 150.00, 500, 50);
 insert into Memory values (2, 100.00, 500, 50);
-
+insert into Memory values (16, 800.00, 500, 50);
+insert into Memory values (32, 1600.00, 500, 50);
 
 -- create sample storages
 insert into Storage values (2000, "SSD", 200.00, 500, 50);

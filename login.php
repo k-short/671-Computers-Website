@@ -11,15 +11,18 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
 if(isset($_POST['login']))   // it checks whether the user clicked login button or not 
 {
 	include 'validUser.php';
+	include 'getName.php';
 	
      $user = $_POST['user'];
 	 
 	 //Use this code when connected to Db, to see if valid user. 
 	 $userCall = isvalid($user);
+	 $userName = getName($user);
         if($userCall == 0)  // username is  set to "user"  and Password   
          {                                   // is 1234 by default     
           $_SESSION['use']=$user;
 		  $_SESSION['useType']="customer";
+		  $_SESSION['name']=$userName;
 
 		  //  On Successful Login redirects to home.php
           echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            
@@ -27,6 +30,7 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 		else if($userCall == 1){
 			$_SESSION['use']=$user;
 			$_SESSION['useType']="admin";
+			$_SESSION['name']=$userName;
 			
 			echo '<script type="text/javascript"> window.open("admin.php","_self");</script>';  
 		}
