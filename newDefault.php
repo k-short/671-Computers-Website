@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
 <title>Add new Default System</title>
@@ -10,11 +10,11 @@ table, th, td {
 </head>
 <body>
 
-<h1>Search Results</h1>
+<h1>Search Results</h1> -->
 
 <?php
 
-function addDefault($chWanted, $memoryWanted, $speedWanted, $storTypeWanted, $storWanted){ 
+function addDefault($chWanted, $memoryWanted, $storTypeWanted, $storWanted){ 
 
 
 	//hard coded values for testing
@@ -40,10 +40,10 @@ if ($conn->connect_error) {
 //check if system already exists
 
 $sql = "Select *
-	From DefaultSystem 
+	From DefaultSystem
 	Where chNumber='".$chWanted."'".
 	" AND storType='".$storTypeWanted."'".
-	" And storSize>=".$storWanted.
+	" AND storSize>=".$storWanted.
 	" AND memSize>=".$memoryWanted;   
 //$result = $conn->query($sql);
 $result=mysqli_query($conn, $sql);
