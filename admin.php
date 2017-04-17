@@ -68,8 +68,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
-            <li onClick="queryAllCustomers()"><a href="#">Customer List</a></li>
-            <li onClick="queryAllDefaultSystems()"><a href="#">Default Systems</a></li>
+            <li ><a href="customers.php">Customer List</a></li>
+            <li ><a href="defaultSystems.php">Default Systems</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">
