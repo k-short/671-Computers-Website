@@ -68,7 +68,7 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
     <div class="container">
 	  <form method="post"  action="">
 		<div class="input-group col-md-4 col-md-offset-4 row.center vertical-center">
-			<input type="text" name="user" class="form-control " placeholder="Name" aria-label="...">
+			<input type="text" name="user" class="form-control " placeholder="User ID" aria-label="...">
 			<div class="input-group-btn">
 			<!-- Button and dropdown menu -->
 				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
@@ -80,7 +80,6 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 			</div>
 		</div>
 	  </form>
-	<button class="btn-default">Create new account</button>
     </div> <!-- /container -->
 
 

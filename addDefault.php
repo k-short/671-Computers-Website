@@ -69,6 +69,9 @@
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="defaultSystems.php">Default Systems</a></li>
+			<li ><a href="purchases.php">Purchases</a></li>
+			<li ><a href="inventory.php">Inventory</a></li>
+			<li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">

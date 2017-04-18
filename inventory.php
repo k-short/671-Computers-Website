@@ -1,4 +1,4 @@
-<?php  session_start(); ?>
+      <?php  session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@
 
   </head>
 
-  <!--<body onLoad="queryAllCustomers()"> -->
+  <body> 
 
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
@@ -71,7 +71,7 @@
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="defaultSystems.php">Default Systems</a></li>
 			<li ><a href="purchases.php">Purchases</a></li>
-			<li ><a href="inventory.php">Inventory</a></li>
+			<li ><a href="#">Inventory</a></li>
 			<li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
@@ -82,10 +82,10 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!--<h1 class="page-header">Dashboard</h1> -->
 
-          <h2 class="sub-header" id="adminHeader">Welcome admin, <?php echo $_SESSION['name'];?></h2>
+          <h2 class="sub-header" id="adminHeader">Inventory</h2>
           <div class="table-responsive">
             <table  id="adminTable" class="table table-striped">
-
+				
             </table>
           </div>
         </div>

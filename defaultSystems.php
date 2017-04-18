@@ -70,6 +70,9 @@
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="#">Default Systems</a></li>
+			<li ><a href="purchases.php">Purchases</a></li>
+			<li ><a href="inventory.php">Inventory</a></li>
+			<li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">
@@ -82,7 +85,7 @@
           <h2 class="sub-header" id="adminHeader">Default Systems</h2>
           <div class="table-responsive">
             <table  id="adminTable" class="table table-striped">
-
+				
             </table>
           </div>
         </div>

@@ -1,4 +1,4 @@
-<?php  session_start(); ?>
+   <?php  session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@
 
   </head>
 
-  <!--<body onLoad="queryAllCustomers()"> -->
+  <body>
 
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
@@ -70,7 +70,7 @@
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="defaultSystems.php">Default Systems</a></li>
-			<li ><a href="purchases.php">Purchases</a></li>
+			<li ><a href="#">Purchases</a></li>
 			<li ><a href="inventory.php">Inventory</a></li>
 			<li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
@@ -82,7 +82,35 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!--<h1 class="page-header">Dashboard</h1> -->
 
-          <h2 class="sub-header" id="adminHeader">Welcome admin, <?php echo $_SESSION['name'];?></h2>
+          <h2 class="sub-header" id="adminHeader">Purchases</h2>
+          <h5> Select desired time frame: </h5>
+
+          <div class="row">
+          <div class="col-lg-2 col-md-2"> <!-- Time frame -->
+            <form class="form-inline"
+              <label for="fromTime">From: </label>
+                <div class="form-group">
+                  <select class="form-control"  id="fromTime" name="fromTime">
+                    <option>L700</option>
+                    <option>H900</option>
+                  </select>
+                </div>
+              </form>
+          </div>
+
+          <div class="col-lg-2 col-md-2"> <!-- Time frame -->
+            <form class="form-inline"
+              <label for="toTime">to: </label>
+                <div class="form-group">
+                  <select class="form-control"  id="toTime" name="toTime">
+                    <option>L700</option>
+                    <option>H900</option>
+                  </select>
+                </div>
+              </form>
+          </div>
+        </div>
+
           <div class="table-responsive">
             <table  id="adminTable" class="table table-striped">
 

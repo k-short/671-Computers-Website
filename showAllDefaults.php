@@ -1,10 +1,8 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "Project";
-
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,8 +11,6 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 } 
 
-
-
 $sql = "Select * From DefaultFullInfo";   
 //$result = $conn->query($sql);
 $result=mysqli_query($conn, $sql);
@@ -22,8 +18,19 @@ $result=mysqli_query($conn, $sql);
 //if ($result->num_rows > 0) {
 //if ($result!=false){
 if (mysqli_num_rows($result)>0){
-	echo"<thead><tr> <th>Item Number</th> <th>Style</th> <th>Weight<th/> <th>Measurement</th> <th>Processor</th> 
-	         <th>Memory</th> <th>Storage</th> <th>Storage Type</th> <th>Price</th> </tr></thead>";
+	echo"<thead>
+			<tr> 
+				<th>Item Number</th> 
+				<th>Style</th> 
+				<th>Weight</th> 
+				<th>Measurement</th> 
+				<th>Processor</th> 
+				<th>Memory</th> 
+				<th>Storage</th>
+				<th>Storage Type</th> 
+				<th>Price</th> 
+			</tr>
+		</thead>";
 	echo "<tbody>";
      // output data of each row
 	while($row = $result->fetch_assoc()) {
