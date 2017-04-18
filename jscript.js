@@ -30,7 +30,7 @@ $('#divNewNotifications li').on('click', function() {
 		 xmlhttp.open("GET", "ShowAllCustomers.php", true);
 		 xmlhttp.send();
  }
- 
+
  function queryAllDefaultSystems(){
 		 if(window.XMLHttpRequest){
 			 xmlhttp = new XMLHttpRequest();
@@ -49,21 +49,18 @@ $('#divNewNotifications li').on('click', function() {
 		 xmlhttp.open("GET", "showAllDefaults.php", true);
 		 xmlhttp.send();
  }
-/*
- function querySearchResults(){
-		 if(window.XMLHttpRequest){
-			 xmlhttp = new XMLHttpRequest();
-		 } else{
-			 //For older IE (5, 6)
-			 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		 }
-		 xmlhttp.onreadystatechange = function(){
-			 if(this.readyState == 4 && this.status == 200){
-				 //Put result table into document  at searchTablePlace spot
-				 document.getElementById("searchTablePlace").innerHTML = this.responseText;
-			 }
-		 };
-		 //Get the query result
-		 xmlhttp.open("GET", "searchResults.php", true);
-		 xmlhttp.send();
- }*/
+
+ function highlight(e) {
+    if (selected[0]) selected[0].className = '';
+    e.target.parentNode.className = 'selected';
+  }
+
+  var table = document.getElementById('searchTable'),
+      selected = table.getElementsByClassName('selected');
+  table.onclick = highlight;
+
+
+  function fnselect(){
+
+		alert($("tr.selected td:first" ).html());
+	}
