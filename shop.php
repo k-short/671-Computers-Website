@@ -24,7 +24,7 @@
 	<link href="styles.css" rel="stylesheet">
   </head>
 
-  <body onLoad="searchResults()">
+  <!--<body onLoad="searchResults()">-->
   <!--<body>-->
 
 	<?php
@@ -181,24 +181,8 @@
      <div class="container">
        <!--<table class="table">-->
         <div class="table-responsive">
-            <table class="table table-striped">
-            <!--  <thead>
+            <table class="table table-hover" id="searchTable">
 
-
-
-                <tr>
-                  <th>Item Number</th>
-                  <th>Style</th>
-                  <th>Weight</th>
-                  <th>Measurement</th>
-                  <th>Processor</th>
-                  <th>Memory</th>
-                  <th>Storage</th>
-                  <th>Storage Type</th>
-                  <th>Price</th>
-                </tr>-->
-              </thead>
-                <tbody id="searchTablePlace">
                   <?php
                   if(isset($_POST['searchCriteria']))   // it checks whether the user clicked search button or not
                   {
@@ -213,21 +197,16 @@
                   		$diskType = $_POST['diskTypeSelected'];
                   		$diskCapacity = $_POST['diskCapacitySelected'];
 
-                  	  //$results = showDefaults($price, $computerType, $weight, $memory, $processor, $measurement, $diskType, $diskCapacity);
                       showDefaults($price, $computerType, $weight, $memory, $processor, $measurement, $diskType, $diskCapacity);
-
-
                       //echo $results;
                       //echo json_encode($results);
                   }
                   ?>
 
-                </tbody>
             </table> <!-- Table -->
-
+            <input class="btn btn-info" id="addToWishlist" value="Add to Wishlist" onclick="fnselect()" />
      </div> <!-- Container -->
 
-		 <script> querySearchResults(); </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

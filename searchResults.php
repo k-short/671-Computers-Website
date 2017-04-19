@@ -45,36 +45,38 @@ $result=mysqli_query($conn, $sql);
 if (mysqli_num_rows($result)>0){
 	//echo"<table><tr> <th>Item Number</th> <th>Style</th> <th>Weight<th/> <th>Measurement</th> <th>Processor</th> <th>Memory</th> <th>Storage</th> <th>Storage Type</th> <th>Price</th> </tr>";
 	echo "<thead>
-		<tr>
-			<th>Item Number</th>
-			<th>Style</th>
-			<th>Weight</th>
-			<th>Measurement</th>
-			<th>Processor</th>
-			<th>Memory</th>
-			<th>Storage</th>
-			<th>Storage Type</th>
-			<th>Price</th>
-		</tr>
-	</thead>";
+      		<tr>
+      			<th>Item Number</th>
+      			<th>Style</th>
+      			<th>Weight</th>
+      			<th>Measurement</th>
+      			<th>Processor</th>
+      			<th>Memory</th>
+      			<th>Storage</th>
+      			<th>Storage Type</th>
+      			<th>Price</th>
+      		</tr>
+    	</thead>";
 
 		 // output data of each row
 	while($row = $result->fetch_assoc()) {
 		$price = $row["chPrice"] + $row["storPrice"] + $row["memPrice"];
+    //echo "<tbody id=""searchTablePlace"">";
+    echo "<tbody>";
 
     echo "<tr><td>" . $row["defaultNo"] . "</td><td>" . $row["style"] . "</td><td>" . $row["weight"] .
 		"</td><td>" . $row["measures"] . "</td><td>" . $row["processorSpeed"] . "</td> <td>" . $row["memSize"] .
 		"</td> <td>" . $row["storSize"] . "</td> <td>" . $row["storType"] . "</td><td>" . $price . "</td></tr>";
   }
-     echo "</table>";
+    echo "</tbody>";
 } else {
      echo "0 results";
-	}
+}
 
 $conn->close();
 }
 ?>
 
-
+<!--
 </body>
-</html>
+</html>-->
