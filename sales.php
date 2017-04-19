@@ -23,7 +23,7 @@
 
   </head>
 
-  <body> 
+  <body>
 
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
@@ -83,9 +83,35 @@
           <!--<h1 class="page-header">Dashboard</h1> -->
 
           <h2 class="sub-header" id="adminHeader">Sales Statistics</h2>
+          <div class="row">
+          <div class="col-lg-2 col-md-2"> <!-- Time frame -->
+            <form class="form-inline"
+              <label for="fromTime">From: </label>
+                <div class="form-group">
+                  <select class="form-control"  id="fromTime" name="fromTime">
+                    <option>L700</option>
+                    <option>H900</option>
+                  </select>
+                </div>
+              </form>
+          </div>
+
+          <div class="col-lg-2 col-md-2"> <!-- Time frame -->
+            <form class="form-inline"
+              <label for="toTime">to: </label>
+                <div class="form-group">
+                  <select class="form-control"  id="toTime" name="toTime">
+                    <option>L700</option>
+                    <option>H900</option>
+                  </select>
+                </div>
+              </form>
+          </div>
+        </div>
+
           <div class="table-responsive">
             <table  id="adminTable" class="table table-striped">
-				
+
             </table>
           </div>
         </div>

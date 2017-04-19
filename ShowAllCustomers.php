@@ -9,7 +9,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 $sql = "SELECT * FROM Customer";
 $result = $conn->query($sql);
@@ -28,7 +28,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
      echo "<thead>
                 <tr>
-                  <th>#</th>
+                  <th>Customer No.</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
 
 
 $conn->close();
-?>  
+?>
 
 
 

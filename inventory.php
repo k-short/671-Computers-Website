@@ -23,7 +23,7 @@
 
   </head>
 
-  <body> 
+  <body>
 
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
@@ -83,9 +83,30 @@
           <!--<h1 class="page-header">Dashboard</h1> -->
 
           <h2 class="sub-header" id="adminHeader">Inventory</h2>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-3">
+              <form class="form-inline"
+              <label for="inventoryType">Select item type: </label>
+              <div class="form-group">
+                <select class="form-control" id="inventoryType" name="inventoryType">
+                  <option>Chassis</option>
+                  <option>Memory</option>
+                  <option>Storage</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+              <button class="btn btn-info" name="inventoryButton" id="inventoryButton">
+                Search
+              </button>
+            </div>
+          </div
+          <br>
+          <br>
           <div class="table-responsive">
-            <table  id="adminTable" class="table table-striped">
-				
+            <table  id="inventoryTable" class="table table-striped">
+
             </table>
           </div>
         </div>
