@@ -60,7 +60,6 @@ $(document).ready(function() {
 		 xmlhttp.send();
  }
 
-<<<<<<< HEAD
  function queryInventory(str){
     if(window.XMLHttpRequest){
       xmlhttp = new XMLHttpRequest();
@@ -97,7 +96,7 @@ $(document).ready(function() {
 		 xmlhttp.open("GET", "searchResults.php", true);
 		 xmlhttp.send();
  }*/
-=======
+
  function highlight(e) {
     if (selected[0]) selected[0].className = '';
     e.target.parentNode.className = 'selected';
@@ -112,4 +111,3 @@ $(document).ready(function() {
 
 		alert($("tr.selected td:first" ).html());
 	}
->>>>>>> f6b0312a0ba59b48feec0428f4b97a3348619283
