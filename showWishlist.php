@@ -2,9 +2,9 @@
 <?php
 
 //test code
-$testCID='12345';
+//$testCID='12345';
 
-echo showWishlist("12345");
+//echo showWishlist("12345");
 //end of test code
 function showWishlist($thisCustomer){
 $servername = "localhost";
