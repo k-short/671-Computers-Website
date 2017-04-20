@@ -2,9 +2,9 @@
 <?php
 
 //test code
-//$testCID='12345';
+$testCID='12345';
 
-echo showWishlist($testCID);
+echo showWishlist("12345");
 //end of test code
 function showWishlist($thisCustomer){
 $servername = "localhost";
@@ -20,19 +20,16 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "Select W.dateAdded, W.memSize, W.storType, W.storSize, W.itemNo
-		C.chNumber, C.Measures, C.processorSpeed, C.style, C.weight, 
-      		M.memPrice, S.storPrice, C.chPrice	
-	From wishlistItem W, chassis C, memory M, storage S
-	Where W.cID='".$thisCustomer." AND 
-	C.chNumber=W.chNumber AND 
-	M.memSize=W.memSize AND 
+$sql="Select W.dateAdded, W.memSize, W.storType, W.storSize, W.itemNo, C.chNumber, C.measures, C.processorSpeed, C.style, C.weight, M.memPrice, S.storPrice, C.chPrice
+	From wishlistItem W, Chassis C, Memory M, Storage S
+	Where W.cID='".$thisCustomer."' AND
+	C.chNumber=W.chNumber AND
+	M.memSize=W.memSize AND
 	S.storSize=W.storSize AND S.storType=W.storType";
-
-//$result=mysqli_query($conn, $sql);
-$result = $conn->query($sql);
-//if (mysqli_num_rows($result)>0){
-if($result->num_rows > 0){
+$result=mysqli_query($conn, $sql);
+//$result = $conn->query($sql);
+if (mysqli_num_rows($result)>0){
+//if($result->num_rows > 0){
 
 	echo "<thead>
 		<tr>
@@ -53,7 +50,7 @@ if($result->num_rows > 0){
 		 // output data of each row
 	while($row = $result->fetch_assoc()) {
 		$totalPrice = $row["chPrice"] + $row["storPrice"] + $row["memPrice"];
-		$dateAdded=date("Y/m/d", $row["dateAdded"]);
+		$dateAdded=$row["dateAdded"];
 			echo 
 			"<tr><td>" . $dateAdded . "</td>
 			<td>" . $row["itemNo"] . "</td>
