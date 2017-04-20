@@ -101,7 +101,7 @@
                 Search
               </button>
             </div>
-          </div
+          </div>
           <br>
           <br>
           <div class="table-responsive">
@@ -109,7 +109,27 @@
 
             </table>
           </div>
-        </div>
+
+            <div class="col-lg-4 col-md-4"> <!-- Time frame -->
+              <form>
+                <label for="chassisNo">Chassis: </label>
+                  <div class="form-group">
+                    <input type="text" id="chassisInput" name="chassisInput"></input>
+                  </div>
+                </form>
+
+              <form>
+                <label for="invInput">New Inventory: </label>
+                  <div class="form-group">
+                    <input type="text" id="invInput" name="invInput"></input>
+                  </div>
+                </form>
+
+
+              <button>Update</button>
+            </div>
+
+      </div>
       </div>
     </div>
 
