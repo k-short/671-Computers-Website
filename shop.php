@@ -202,10 +202,37 @@
                       //echo json_encode($results);
                   }
                   ?>
-
             </table> <!-- Table -->
-            <input class="btn btn-info" id="addToWishlist" value="Add to Wishlist" onclick="fnselect()" />
+        </div>
      </div> <!-- Container -->
+
+     <div class="container">
+        <h2>Add To Wishlist</h2>
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="focusedInput">Item Number</label>
+              <input class="form-control" id="itemNumber" type="text">
+            </div>
+            <div class="form-group">
+              <label for="focusedInput">Memory</label>
+              <input class="form-control" id="memWanter" type="text">
+            </div>
+            <div class="form-group">
+              <label for="focusedInput">Storage Size</label>
+              <input class="form-control" id="storSize" type="text">
+            </div>
+            <div class="form-group">
+              <label for="focusedInput">Storage Type</label>
+              <input class="form-control" id="storType" type="text">
+            </div>
+          </form>
+          <input class="btn btn-wish" id="addToWishlist" value="Add to Wishlist" onclick="fnselect()"/>
+    </div> <!-- Container -->
+
+
+     </div> <!-- Container -->
+
+
 
 
     <!-- Bootstrap core JavaScript

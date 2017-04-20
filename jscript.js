@@ -97,7 +97,7 @@ $(document).ready(function() {
 		 xmlhttp.send();
  }*/
 
- function highlight(e) {
+ /*function highlight(e) {
     if (selected[0]) selected[0].className = '';
     e.target.parentNode.className = 'selected';
   }
@@ -108,6 +108,9 @@ $(document).ready(function() {
 
 
   function fnselect(){
+    //alert($("tr.selected td:first").html());
+		var itemNumber = $("tr.selected td:first").html();
 
-		alert($("tr.selected td:first" ).html());
-	}
+    //alert($("tr.selected" ).html());
+		//alert($("tr.selected td:first" ).html());
+	}*/
