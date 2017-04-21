@@ -1,5 +1,4 @@
 
-
 <?php
 
 include 'updatePrice.php';
@@ -11,9 +10,9 @@ $testCHNumber="L700";
 $testMemory=16;
 $testStorSize=1000;
 $testStorType="SSD";
-$testQuantity=2;
+$testQuantity=250;
 
-makePurchase($testCustomer, $testCCNumber, $testCHNumber, $testMemory, $testStorSize, $testStorType, $testQuantity);
+ echo makePurchase($testCustomer, $testCCNumber, $testCHNumber, $testMemory, $testStorSize, $testStorType, $testQuantity);
 */
 function makePurchase($thisCustomer, $ccNumber, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity){
 	$servername = "localhost";
@@ -30,11 +29,67 @@ function makePurchase($thisCustomer, $ccNumber, $thisChNumber, $thisMemory, $thi
 	//Check CC info
 
 	//Check inventory levels
-
-	//CC is valid and inventory is available--purchase can go through
-
 	//decrement inventories
+	$memInventory;
+	$chInventory;
+	$storInventory;
+
+	$sql=	"Select memInventory
+		From memory
+		Where memSize=".$thisMemory;
+	$result=mysqli_query($conn, $sql);
+	while($row = $result->fetch_assoc()) {
+		$memInventory = $row["memInventory"];
+	}
+
+	$sql=	"Select chInventory
+		From Chassis
+		Where chNumber='".$thisChNumber."'";
+	$result=mysqli_query($conn, $sql);
+	while($row = $result->fetch_assoc()) {
+		$chInventory = $row["chInventory"];
+	}
+
+	$sql=	"Select storInventory
+		From Storage
+		Where storSize=".$thisStorSize." AND storType='".$thisStorType."'";
+	$result=mysqli_query($conn, $sql);
+	while($row = $result->fetch_assoc()) {
+		$storInventory = $row["storInventory"];
+	}
+  
+	$memNeeded=$quantity-$memInventory;
+	$storNeeded=$quantity-$storInventory;
+	$chNeeded=$quantity-$chInventory;
+
+	if(($memNeeded>0) || ($storNeeded>0) || ($chNeeded>0)){
+		if ($memNeeded<0) $memNeeded=0;
+		if ($storNeeded<0) $storNeeded=0;
+		if ($chNeeded<0) $chNeeded=0;
+
+		return("We have insufficient parts for your order.  To fill your order, we need ".$memNeeded." more memory units, ".$storNeeded." more storage units, and ".$chNeeded." more chassies.  Please try again with a different or smaller order.");
+	}
 	
+	//if we have enough of all parts, update inventory
+	$newMem=$memInventory-$quantity;
+	$newStor=$storInventory-$quantity;
+	$newCh=$chInventory-$quantity;
+	
+	$sqlUpdate=	"Update Memory
+		Set memInventory=".$newMem." 
+		Where memSize=".$thisMemory;
+	$result=mysqli_query($conn, $sqlUpdate);
+
+	$sqlUpdate="Update Chassis
+		Set chInventory=".$newCh."	
+		Where chNumber='".$thisChNumber."'";
+	$result=mysqli_query($conn, $sqlUpdate);
+
+	$sqlUpdate=	"Update Storage
+		Set storInventory=".$newStor." 
+		Where storSize=".$thisStorSize." AND storType='".$thisStorType."'";
+	$result=mysqli_query($conn, $sqlUpdate);
+
 	//update purchase relations
 	$sqlCount="Select * From ItemPurchase";
 	$resultCount=mysqli_query($conn, $sqlCount);
