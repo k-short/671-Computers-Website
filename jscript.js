@@ -78,24 +78,6 @@ $(document).ready(function() {
     xmlhttp.open("GET", "getInventory.php?inventoryType=" + str, true);
     xmlhttp.send();
  }
-/*
- function querySearchResults(){
-		 if(window.XMLHttpRequest){
-			 xmlhttp = new XMLHttpRequest();
-		 } else{
-			 //For older IE (5, 6)
-			 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		 }
-		 xmlhttp.onreadystatechange = function(){
-			 if(this.readyState == 4 && this.status == 200){
-				 //Put result table into document  at searchTablePlace spot
-				 document.getElementById("searchTablePlace").innerHTML = this.responseText;
-			 }
-		 };
-		 //Get the query result
-		 xmlhttp.open("GET", "searchResults.php", true);
-		 xmlhttp.send();
- }*/
 
  /*function highlight(e) {
     if (selected[0]) selected[0].className = '';

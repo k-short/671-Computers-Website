@@ -177,6 +177,7 @@
       </form> <!-- Form to POST -->
      </div> <!-- Container -->
 
+
     <!-- Product Load Container -->
      <div class="container">
        <!--<table class="table">-->
@@ -206,32 +207,48 @@
         </div>
      </div> <!-- Container -->
 
+
      <div class="container">
         <h2>Add To Wishlist</h2>
-          <form class="form-inline">
+          <form class="form-inline" method="post" action="">
+            <fieldset>
+
             <div class="form-group">
               <label for="focusedInput">Item Number</label>
-              <input class="form-control" id="itemNumber" type="text">
+              <input class="form-control" id="itemNumber" name="itemNumber" type="text">
             </div>
             <div class="form-group">
               <label for="focusedInput">Memory</label>
-              <input class="form-control" id="memWanter" type="text">
+              <input class="form-control" id="memWanted" name="memWanted" type="text">
             </div>
             <div class="form-group">
               <label for="focusedInput">Storage Size</label>
-              <input class="form-control" id="storSize" type="text">
+              <input class="form-control" id="storSize" name="storSize" type="text">
             </div>
             <div class="form-group">
               <label for="focusedInput">Storage Type</label>
-              <input class="form-control" id="storType" type="text">
+              <input class="form-control" id="storType" name="storType" type="text">
             </div>
+            </fieldset>
+            <br />
+              <input class="btn btn-info" name="addToWishlistButton" type="Submit" id="addToWishlistButton" value="Add to Wishlist" />
+            <!--<input class="btn btn-info" id="addToWishlist" name="Add to Wishlist" onclick="fnselect()"/>-->
+
+            <?php
+    				if(isset($_POST['addToWishlistButton']))   // it checks whether the user clicked search button or not
+                      {
+                      	include 'newWishlist_Selection.php';
+
+                      		$itemNo = $_POST['itemNumber'];
+                          $memory = $_POST['memWanted'];
+                      		$diskSize = $_POST['storSize'];
+                          $storage = $_POST['storType'];
+
+                          checkDefault($itemNo, $memory, $diskSize, $storage);
+    				  }
+    				?>
           </form>
-          <input class="btn btn-wish" id="addToWishlist" value="Add to Wishlist" onclick="fnselect()"/>
     </div> <!-- Container -->
-
-
-     </div> <!-- Container -->
-
 
 
 

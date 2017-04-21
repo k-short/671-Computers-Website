@@ -1,46 +1,48 @@
-<?php  session_start(); ?> 
+<?php  session_start(); ?>
 
 <?php
 
-if(isset($_SESSION['use']))   // Checking whether the session is already there or not if 
-                              // true then header redirect it to the home page directly 
+if(isset($_SESSION['use']))   // Checking whether the session is already there or not if
+                              // true then header redirect it to the home page directly
  {
-    header("Location:index.php"); 
+    header("Location:index.php");
  }
 
-if(isset($_POST['login']))   // it checks whether the user clicked login button or not 
+if(isset($_POST['login']))   // it checks whether the user clicked login button or not
 {
 	include 'validUser.php';
 	include 'getName.php';
-	
+
      $user = $_POST['user'];
-	 
-	 //Use this code when connected to Db, to see if valid user. 
+
+	 //Use this code when connected to Db, to see if valid user.
 	 $userCall = isvalid($user);
 	 $userName = getName($user);
-        if($userCall == 0)  // username is  set to "user"  and Password   
-         {                                   // is 1234 by default     
+        if($userCall == 0)  // username is  set to "user"  and Password
+         {                                   // is 1234 by default
           $_SESSION['use']=$user;
 		  $_SESSION['useType']="customer";
 		  $_SESSION['name']=$userName;
 
+
+
 		  //  On Successful Login redirects to home.php
-          echo '<script type="text/javascript"> window.open("index.php","_self");</script>';            
+          echo '<script type="text/javascript"> window.open("index.php","_self");</script>';
         }
 		else if($userCall == 1){
 			$_SESSION['use']=$user;
 			$_SESSION['useType']="admin";
 			$_SESSION['name']=$userName;
-			
-			echo '<script type="text/javascript"> window.open("admin.php","_self");</script>';  
+
+			echo '<script type="text/javascript"> window.open("admin.php","_self");</script>';
 		}
         else
         {
-            echo "Invalid username.";        
+            echo "Invalid username.";
         }
 }
  ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,10 +61,10 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet"> 
+    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
   </head>
-  
+
   <body>
 
     <div class="container">
@@ -72,7 +74,7 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
 			<div class="input-group-btn">
 			<!-- Button and dropdown menu -->
 				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
-			
+
 				<ul id="divNewNotifications" class="dropdown-menu">
 					<li ><a>User</a></li>
 					<li ><a>Admin</a></li>
@@ -90,4 +92,4 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="jscript.js"></script>
   </body>
-</html>  
+</html>
