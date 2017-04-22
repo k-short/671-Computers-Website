@@ -18,16 +18,16 @@
 	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet"> 
+    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
   </head>
-  
+
   <body>
-  
+
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
        {
-           header("Location:Login.php");  
+           header("Location:Login.php");
        }
 	?>
 
@@ -66,6 +66,23 @@
     </nav>
 
     <div class="container">
+      <!--<table class="table">-->
+      <h2>Wish List</h2>
+       <div class="table-responsive">
+         <table class="table table-bordered" id="wishListTable">
+
+             <?php
+
+             include 'showWishlist.php';
+
+             $user=$_SESSION['use'];
+             showWishlist($user);
+
+
+             ?>
+
+           </table> <!-- Table -->
+       </div>
 
     </div> <!-- /container -->
 

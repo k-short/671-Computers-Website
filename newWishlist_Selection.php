@@ -4,13 +4,6 @@ function checkDefault($itemNo, $memory, $diskSize, $storage){
 
 include 'addWishlist.php';
 
-	//hard coded values for testing
-	/*
-$chWanted="L700";
-$storTypeWanted="SSD";
-$storWanted=1600;
-$memoryWanted=4;
-	 */
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -24,7 +17,7 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 }
 
-//check if system already exists
+
 $sql1 = "Select chNumber
 	From DefaultSystem
 	Where defaultNo='".$itemNo."'";
@@ -33,7 +26,6 @@ $getchWanted=mysqli_query($conn, $sql1);
 if (mysqli_num_rows($getchWanted)>0){
 	while($row = $getchWanted->fetch_assoc()) {
 		$chWanted = $row["chNumber"];
-		//echo $chWanted;
 	}
 }
 
@@ -44,7 +36,7 @@ $sql2 = "Select *
 	" AND storType='".$storage."'".
 	" AND storSize=".$diskSize.
 	" AND memSize=".$memory;
-//$result = $conn->query($sql);
+
 $result2=mysqli_query($conn, $sql2);
 
 
@@ -62,7 +54,6 @@ else {
 
 	$sqlAdd="insert into DefaultSystem values('".$itemNumber."', '".$chWanted."', '".$storage."', ".$diskSize.", ".$memory.")";
 	$result2=mysqli_query($conn, $sqlAdd);
-     //echo "New system added with item number " . $itemNumber.".";
 		 addWishlist($itemNumber, $chWanted, $memory, $storage, $diskSize);
 }
 $conn->close();

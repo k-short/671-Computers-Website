@@ -7,18 +7,23 @@
 //echo showWishlist("12345");
 //end of test code
 function showWishlist($thisCustomer){
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Project";
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "Project";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	     die("Connection failed: " . $conn->connect_error);
+	}
+//$user=$_SESSION['use'];
+//echo $user;
 
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-}
+//$thisCustomer=$user;
 
 $sql="Select W.dateAdded, W.memSize, W.storType, W.storSize, W.itemNo, C.chNumber, C.measures, C.processorSpeed, C.style, C.weight, M.memPrice, S.storPrice, C.chPrice
 	From wishlistItem W, Chassis C, Memory M, Storage S
@@ -51,8 +56,8 @@ if (mysqli_num_rows($result)>0){
 	while($row = $result->fetch_assoc()) {
 		$totalPrice = $row["chPrice"] + $row["storPrice"] + $row["memPrice"];
 		$dateAdded=$row["dateAdded"];
-			echo 
-			"<tr><td>" . $dateAdded . "</td>
+			echo
+			"<tbody><tr><td>" . $dateAdded . "</td>
 			<td>" . $row["itemNo"] . "</td>
 			<td>" . $row["chNumber"] . "</td>
 			<td>" . $row["style"] . "</td>
@@ -62,9 +67,9 @@ if (mysqli_num_rows($result)>0){
 			<td>" . $row["memSize"] ."</td>
 			<td>" . $row["storSize"] . "</td>
 			<td>" . $row["storType"] . "</td>
-			<td>" . $totalPrice . "</td></tr>";
+			<td>" . $totalPrice . "</td></tr></tbody>";
   }	//end of while loop
-     echo "</table>";
+
 } else {
      echo "0 results";
 	}
