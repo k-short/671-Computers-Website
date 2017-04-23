@@ -70,9 +70,15 @@
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="defaultSystems.php">Default Systems</a></li>
-			<li ><a href="purchases.php">Purchases</a></li>
-			<li ><a href="#">Inventory</a></li>
-			<li ><a href="sales.php">Sales Statistics</a></li>
+			      <li ><a href="purchases.php">Purchases</a></li>
+			      <li ><a href="#">Inventory</a>
+              <ul class="sidebar-submenu">
+                <li ><a href="inventory-chassis.php">Chassis</a></li>
+                <li ><a href="inventory-memory.php">Memory</a></li>
+                <li ><a href="inventory-storage.php">Storage</a></li>
+              </ul>
+            </li>
+			      <li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">
@@ -83,8 +89,10 @@
           <!--<h1 class="page-header">Dashboard</h1> -->
 
           <h2 class="sub-header" id="adminHeader">Inventory</h2>
+          <br>
+          <h4> Select inventory item on side menu. </h4>
 
-          <div class="row">
+          <!--<div class="row">
             <div class="col-lg-3 col-md-3">
               <form class="form-inline"
               <label for="inventoryType">Select item type: </label>
@@ -108,27 +116,27 @@
             <table  id="inventoryTable" class="table table-striped">
 
             </table>
+          </div> -->
+
+          <div class="col-lg-4 col-md-4" id="inventoryForm" name="inventoryForm"> <!-- Time frame -->
+            <form>
+              <label for="chassisNo">Chassis: </label>
+                <div class="form-group">
+                  <input type="text" id="chassisInput" name="chassisInput"></input>
+                </div>
+              </form>
+
+            <form>
+              <label for="invInput">New Inventory: </label>
+                <div class="form-group">
+                  <input type="text" id="cInvInput" name="cInvInput"></input>
+                </div>
+              </form>
+
+
+            <button id="updateInv" name="updateInv">Update</button>
+            <h5 id="updateResponse" name="updateResponse"></h5>
           </div>
-
-            <div class="col-lg-4 col-md-4"> <!-- Time frame -->
-              <form>
-                <label for="chassisNo">Chassis: </label>
-                  <div class="form-group">
-                    <input type="text" id="chassisInput" name="chassisInput"></input>
-                  </div>
-                </form>
-
-              <form>
-                <label for="invInput">New Inventory: </label>
-                  <div class="form-group">
-                    <input type="text" id="invInput" name="invInput"></input>
-                  </div>
-                </form>
-
-
-              <button>Update</button>
-            </div>
-
       </div>
       </div>
     </div>

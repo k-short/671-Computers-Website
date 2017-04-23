@@ -70,9 +70,15 @@
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="defaultSystems.php">Default Systems</a></li>
-			<li ><a href="#">Purchases</a></li>
-			<li ><a href="inventory.php">Inventory</a></li>
-			<li ><a href="sales.php">Sales Statistics</a></li>
+			      <li ><a href="#">Purchases</a></li>
+			      <li ><a href="#">Inventory</a>
+              <ul class="sidebar-submenu">
+                <li ><a href="inventory-chassis.php">Chassis</a></li>
+                <li ><a href="inventory-memory.php">Memory</a></li>
+                <li ><a href="inventory-storage.php">Storage</a></li>
+              </ul>
+            </li>
+			      <li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">
@@ -83,7 +89,7 @@
           <!--<h1 class="page-header">Dashboard</h1> -->
 
           <h2 class="sub-header" id="adminHeader">Purchases</h2>
-      
+
           <div class="table-responsive">
             <table  id="adminTable" class="table table-striped">
 

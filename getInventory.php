@@ -36,8 +36,7 @@ if (mysqli_num_rows($result)>0){
 		 // output data of each row
 	    while($row = $result->fetch_assoc()) {
       echo "<tr><td>" . $row["chNumber"] . "</td><td>" . $row["style"] . "</td><td>" . $row["processorSpeed"] .
-		       "</td><td>" . $row["measures"] . "</td><td>" . $row["weight"] . "</td><td>".
-           "<input type=\"text\" value=\"".$row["chInventory"]."\"></input></td></tr>";
+		       "</td><td>" . $row["measures"] . "</td><td>" . $row["weight"] . "</td><td>".$row["chInventory"]."</td></tr>";
      }
      echo "</tbody>";
    }
@@ -52,8 +51,7 @@ if (mysqli_num_rows($result)>0){
      echo "<tbody>";
      // output data of each row
       while($row = $result->fetch_assoc()) {
-      echo "<tr><td>" . $row["memSize"] . "</td><td>" .
-           "<input type=\"text\" value=\"".$row["memInventory"]."\"></input></td></tr>";
+      echo "<tr><td>" . $row["memSize"] . "</td><td>" .$row["memInventory"]."</td></tr>";
      }
      echo "</tbody>";
    }
@@ -69,8 +67,7 @@ if (mysqli_num_rows($result)>0){
      echo "<tbody>";
 		 // output data of each row
 	    while($row = $result->fetch_assoc()) {
-      echo "<tr><td>" . $row["storSize"] . "</td><td>" . $row["storType"] . "</td><td>" .
-          "<input type=\"text\" value=\"".$row["storInventory"]."\"></input></td></tr>";
+      echo "<tr><td>" . $row["storSize"] . "</td><td>" . $row["storType"] . "</td><td>" .$row["storInventory"]."</td></tr>";
      }
      echo "</tbody>";
    }

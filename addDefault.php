@@ -23,12 +23,12 @@
 
   </head>
 
-  <body>    
+  <body>
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
        {
            header("Location:Login.php");
-       }			  
+       }
 	?>
 
     <!-- Static navbar -->
@@ -69,9 +69,15 @@
             <!--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
             <li ><a href="customers.php">Customer List</a></li>
             <li ><a href="defaultSystems.php">Default Systems</a></li>
-			<li ><a href="purchases.php">Purchases</a></li>
-			<li ><a href="inventory.php">Inventory</a></li>
-			<li ><a href="sales.php">Sales Statistics</a></li>
+			      <li ><a href="purchases.php">Purchases</a></li>
+			      <li ><a href="#">Inventory</a>
+              <ul class="sidebar-submenu">
+                <li ><a href="inventory-chassis.php">Chassis</a></li>
+                <li ><a href="inventory-memory.php">Memory</a></li>
+                <li ><a href="inventory-storage.php">Storage</a></li>
+              </ul>
+            </li>
+			      <li ><a href="sales.php">Sales Statistics</a></li>
             <!--<li><a href="#">Export</a></li> -->
           </ul>
           <ul class="nav nav-sidebar">
@@ -92,7 +98,7 @@
             <div class="panel-body collapse" id="collapseOne">-->
               <div class="col-lg-4 col-md-4">
 			   <br>
-                Chassis Type 
+                Chassis Type
                 </br>
                 <div class="form-group">
                   <select class="form-control" id="chassisType" name="chassisType">
@@ -102,7 +108,7 @@
                   </select>
                 </div> <!-- Price Search -->
                 <br>
-                Storage Type 
+                Storage Type
                 </br>
                 <div class="form-group">
                   <select class="form-control" id="storageType" name="storageType">
@@ -111,7 +117,7 @@
                   </select>
                 </div> <!-- Computer Type Search -->
 				<br>
-                Memory Size (GB)  
+                Memory Size (GB)
                 </br>
                 <div class="form-group">
                   <select class="form-control" id="memorySize" name="memorySize">

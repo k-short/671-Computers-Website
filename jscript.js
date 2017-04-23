@@ -15,6 +15,32 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+    $('#updateCInv').click(function() {
+      event.stopPropagation();
+        updateChassisInventory($('#chassisInput').val(), $('#cInvInput').val());
+        queryInventory('Chassis');
+      return false;
+  });
+});
+
+$(document).ready(function() {
+    $('#updateMInv').click(function() {
+      event.stopPropagation();
+        updateMemInventory($('#memSizeInput').val(), $('#mInvInput').val());
+        queryInventory('Memory');
+      return false;
+  });
+});
+
+$(document).ready(function() {
+    $('#updateSInv').click(function() {
+      event.stopPropagation();
+        updateStorInventory($('#storSizeInput').val(), $('#storTypeInput').val(), $('#sInvInput').val());
+        queryInventory('Storage');
+      return false;
+  });
+});
 	 /*
     Query the database using getquery.php file.
 	String str is the specific query to be called..
@@ -76,5 +102,62 @@ $(document).ready(function() {
     };
     //Get the query result
     xmlhttp.open("GET", "getInventory.php?inventoryType=" + str, true);
+    xmlhttp.send();
+ }
+
+ function updateChassisInventory(chassis, inv){
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    } else{
+      //For older IE (5, 6)
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        //Put result table into document  at allCustBody spot
+        document.getElementById("updateResponse").innerHTML = this.responseText;
+        //document.getElementById("adminHeader").innerHTML= "Customers";
+      }
+    };
+    //Get the query result
+    xmlhttp.open("GET", "updateChassisInventory.php?chassisNo=" + chassis + "&newInv=" + inv, true);
+    xmlhttp.send();
+ }
+
+ function updateMemInventory(memory, inv){
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    } else{
+      //For older IE (5, 6)
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        //Put result table into document  at allCustBody spot
+        document.getElementById("updateResponse").innerHTML = this.responseText;
+        //document.getElementById("adminHeader").innerHTML= "Customers";
+      }
+    };
+    //Get the query result
+    xmlhttp.open("GET", "updateMemInventory.php?memory=" + memory + "&newInv=" + inv, true);
+    xmlhttp.send();
+ }
+
+ function updateStorInventory(storage, type, inv){
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    } else{
+      //For older IE (5, 6)
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        //Put result table into document  at allCustBody spot
+        document.getElementById("updateResponse").innerHTML = this.responseText;
+        //document.getElementById("adminHeader").innerHTML= "Customers";
+      }
+    };
+    //Get the query result
+    xmlhttp.open("GET", "updateStorInventory.php?storage=" + storage + "&type=" + type + "&newInv=" + inv, true);
     xmlhttp.send();
  }
