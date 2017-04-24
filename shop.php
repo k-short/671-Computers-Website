@@ -50,14 +50,14 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
             <li class="active"><a "">Shop</a></li>
-            
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
 			<li><a href="wishlist.php">Wishlist</a></li>
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['name'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                
+
                 <li><a href="orderHistory.php">Order History</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="logout.php">Logout</a></li>
@@ -84,10 +84,12 @@
                 <br />
                 <div class="form-group">
                   <select class="form-control" id="priceSearch" name="priceSearchSelected">
-                    <option>500.00</option>
-                    <option>1000.00</option>
-                    <option>1500.00</option>
+                    <option>3000.00</option>
+                    <option>2500.00</option>
                     <option>2000.00</option>
+                    <option>1500.00</option>
+                    <option>1000.00</option>
+                    <option>500.00</option>
                   </select>
                 </div> <!-- Price Search -->
                 <br />
@@ -106,9 +108,9 @@
                 <br />
                 <div class="form-group">
                   <select class="form-control" id="weightSearch" name="weightSearchSelected">
-                    <option>1</option>
-                    <option>5</option>
                     <option>10</option>
+                    <option>5</option>
+                    <option>1</option>
                   </select>
                 </div> <!-- Weight Search -->
                 <br />
@@ -142,11 +144,11 @@
                 <br />
                 <div class="form-group">
                   <select class="form-control" id="measurementSearch" name="measurementSearchSelected">
-                    <option>8</option>
-                    <option>10</option>
-                    <option>12</option>
-                    <option>14</option>
                     <option>15</option>
+                    <option>14</option>
+                    <option>12</option>
+                    <option>10</option>
+                    <option>8</option>
                   </select>
                 </div> <!-- Measurement Search -->
                 Disk Type
