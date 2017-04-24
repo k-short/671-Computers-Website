@@ -1,4 +1,4 @@
-﻿create database Project;
+create database Project;
 use Project;
 
 
@@ -121,21 +121,34 @@ insert into Customer values ("112358", "Fib O. Nacci", "bunny@bunnymail.net", "1
 
 
 -- create sample admin
-insert into Admin values ("admin-12345", "Mr. Admin");
+insert into Admin values ("admin", "Bill Gates");
 
 
 -- create sample chassises
-insert into Chassis values ("L700", "laptop", 2.5, 14, 5, 699.95, 8, 2000, 1, 100, 10);
+insert into Chassis values ("L300", "laptop", 2.5, 14, 5, 299.95, 8, 2000, 1, 100, 10);
+insert into Chassis values ("L1400", "laptop", 3, 14, 7, 1400, 8, 2000, 1, 100, 10); 
 insert into Chassis values ("H900", "hybrid", 2.2, 12, 3, 895.98, 6, 1600, 1, 20, 2);
-insert into Chassis values ("T300", "tablet", 1.2, 8, .2, 280.75, 4, 1000, 0, 50, 5);
+insert into Chassis values ("H450", "hybrid", 1.2, 12, 3, 449.99, 4, 800, 1, 20, 2);
+insert into Chassis values ("T300", "tablet", 1.2, 8, .2, 280.75, 4, 1000, 1, 50, 5);
+insert into Chassis values ("T600", "tablet", 2, 12, 1, 599.99, 6, 1000, 1, 50, 5);
 
 
 
 
 -- create sample default systems
-insert into DefaultSystem values ("LD701", "L700", "hard drive", 1600, 4);
-insert into DefaultSystem values ("HD900", "H900", "SSD", 800, 3);
-insert into DefaultSystem values ("TD300", "T300", "SSD", 500, 2);
+insert into DefaultSystem values ("1", "L300", "hard drive", 500, 2);
+insert into DefaultSystem values ("2", "L300", "SSD", 500, 2);
+insert into DefaultSystem values ("3", "L1400", "hard drive", 500, 2);
+insert into DefaultSystem values ("4", "L1400", "SSD", 2000, 6);
+insert into DefaultSystem values ("5", "H450", "hard drive", 500, 2);
+insert into DefaultSystem values ("6", "H450", "SSD", 1000, 4);
+insert into DefaultSystem values ("7", "T300", "hard drive", 500, 2);
+insert into DefaultSystem values ("8", "T300", "SSD", 500, 2);
+insert into DefaultSystem values ("9", "T600", "hard drive", 500, 2);
+insert into DefaultSystem values ("10", "T600", "SSD", 500, 6);
+insert into DefaultSystem values ("11", "L1400", "SSD", 500, 2);
+insert into DefaultSystem values ("12", "H900", "SSD", 800, 3);
+insert into DefaultSystem values ("13", "T300", "SSD", 500, 2);
 
 
 
@@ -182,3 +195,4 @@ from DefaultSystem;
 
 select *
 from Memory;
+
