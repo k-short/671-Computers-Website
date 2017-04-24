@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 
 
 
-$sql = "Select P.purchaseID, I.chNumber, I.memSize, I.storSize, I.storType, I.price, I.quantity, P.purchaseDT, I.purchaseStatus, C.style, C.processorSpeed, C.measures, C.weight
+$sql = "Select P.cID, P.purchaseID, I.chNumber, I.memSize, I.storSize, I.storType, I.price, I.quantity, P.purchaseDT, I.purchaseStatus, C.style, C.processorSpeed, C.measures, C.weight
 	From Purchase P, ItemPurchase I, Chassis C
 	Where P.purchaseID=I.purchaseID AND
   I.chNumber=C.chNumber";
@@ -29,6 +29,7 @@ if (mysqli_num_rows($result)>0){
 
   echo "<thead>
 		<tr>
+      <th>Customer ID</th>
 			<th>Purchase Date</th>
       <th>Purchase ID</th>
 			<th>Chassis</th>
@@ -49,7 +50,9 @@ if (mysqli_num_rows($result)>0){
 
 		$dateAdded=$row["purchaseDT"];
 			echo
-			"<tbody><tr><td>" . $dateAdded . "</td>
+			"<tbody><tr>
+      <td>". $row["cID"] . "</td>
+      <td>" . $dateAdded . "</td>
 			<td>" . $row["purchaseID"] . "</td>
 			<td>" . $row["chNumber"] . "</td>
 			<td>" . $row["style"] . "</td>
