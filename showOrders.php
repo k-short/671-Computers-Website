@@ -40,7 +40,7 @@ if (mysqli_num_rows($result)>0){
 			<th>Memory</th>
 			<th>Storage Size</th>
 			<th>Storage Type</th>
-			<th>Price</th>
+			<th>Price Per Unit</th>
       <th>Quantity</th>
       <th>Status</th>
 		</tr>

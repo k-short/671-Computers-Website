@@ -98,13 +98,19 @@
               <div class="panel-body">
 
 
-
                 <div class="form-group">
                   <label class="control-label">Chassis Number</label>
                   <div class="controls">
                     <div class="row">
                       <div class="col-sm-3 col-md-3">
-                        <input class="form-control" id="CHNumber" name="CHNumber" type="text" >
+                        <select class="form-control" class="input-block-level" id="CHNumber" name="CHNumber">
+                          <option>L300</option>
+                          <option>L1400</option>
+                          <option>H900</option>
+                          <option>H450</option>
+                          <option>T300</option>
+                          <option>T600</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -159,7 +165,7 @@
                   </div>
                 </div>
 
-                <div class="form-group">
+                <!--<div class="form-group">
                   <label class="control-label">Quantity</label>
                   <div class="controls">
                     <div class="row">
@@ -167,16 +173,32 @@
                         <select class="form-control" class="input-block-level" id="quantityWanted" name="quantityWanted">
                           <option>1</option>
                           <option>2</option>
+
                         </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+
+                <div class="form-group">
+                  <label class="control-label">Quantity</label>
+                  <div class="controls">
+                    <div class="row">
+                      <div class="col-sm-3 col-md-3">
+                        <input type="number" name="quantityWanted" id="quantityWanted" class="form-control" min="1" max="500" required="">
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label">Card Holder's Name</label>
+                  <label class="control-label">Name</label>
                   <div class="controls">
-                    <input type="text" name="nameOnCard" id="nameOnCard" class="form-control" pattern="\w+ \w+.*" title="Fill your first and last name" required="">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-6">
+                        <input type="text" name="nameOnCard" id="nameOnCard" class="form-control" pattern="\w+ \w+.*" title="Fill your first and last name" required="">
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -251,7 +273,11 @@
                 <div class="form-group">
                   <label class="control-label">Billing Address</label>
                   <div class="controls">
-                    <input type="text" name="billingAddress" id="billingAddress" class="form-control" pattern="\w+ \w+.*" title="Fill your billing address" required="">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-6">
+                        <input type="text" name="billingAddress" id="billingAddress" class="form-control" pattern="\w+ \w+.*" title="Fill your billing address" required="">
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -279,7 +305,7 @@
                                   $thisStorType = $_POST['storType'];
                                   $quantity = $_POST['quantityWanted'];
 
-                                  makePurchase($user, $ccNumber, $cardType, $nameOnCard, $expYear, $expMonth, $billingAddress, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity);
+                                  echo makePurchase($user, $ccNumber, $cardType, $nameOnCard, $expYear, $expMonth, $billingAddress, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity);
                       }
                     ?>
                   </div>
