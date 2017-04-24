@@ -18,16 +18,16 @@
 	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet"> 
+    <link href="bootstrap/css/navbar-static-top.css" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
   </head>
-  
+
   <body>
-  
+
 	<?php
       if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
        {
-           header("Location:Login.php");  
+           header("Location:Login.php");
        }
 	?>
 
@@ -55,7 +55,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['name'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="account.php">Update Info</a></li>
-                <li><a href="#">Order History</a></li>
+                <li><a href="orderHistory.php">Order History</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="logout.php">Logout</a></li>
               </ul>
@@ -64,7 +64,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-	
+
 	<div class="container">
 
     </div> <!-- /container -->

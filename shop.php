@@ -58,7 +58,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['name'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="account.php">Update Info</a></li>
-                <li><a href="#">Order History</a></li>
+                <li><a href="orderHistory.php">Order History</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="logout.php">Logout</a></li>
               </ul>
@@ -209,26 +209,90 @@
 
 
      <div class="container">
-        <h2>Add To Wishlist</h2>
-          <form class="form-inline" method="post" action="">
+        <h2 class="sub-header" id="addWishlistHeader">Add To Wishlist</h2>
+          <form class="form" method="post" action="">
             <fieldset>
 
-            <div class="form-group">
+            <!--<div class="form-group">
               <label for="focusedInput">Item Number</label>
               <input class="form-control" id="itemNumber" name="itemNumber" type="text">
-            </div>
+            </div> -->
+
             <div class="form-group">
+              <label class="control-label">Item Number</label>
+              <div class="controls">
+                <div class="row">
+                  <div class="col-sm-3 col-md-3">
+                    <input class="form-control" id="itemNumber" name="itemNumber" type="text" >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--<div class="form-group">
               <label for="focusedInput">Memory</label>
               <input class="form-control" id="memWanted" name="memWanted" type="text">
-            </div>
+            </div>-->
+
             <div class="form-group">
+              <label class="control-label">Memory</label>
+              <div class="controls">
+                <div class="row">
+                  <div class="col-sm-3 col-md-3">
+                    <select class="form-control" class="input-block-level" id="memWanted" name="memWanted">
+                      <option>2</option>
+                      <option>4</option>
+                      <option>6</option>
+                      <option>8</option>
+                      <option>16</option>
+                      <option>32</option>
+                    </select>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+            <!--<div class="form-group">
               <label for="focusedInput">Storage Size</label>
               <input class="form-control" id="storSize" name="storSize" type="text">
-            </div>
+            </div>-->
+
             <div class="form-group">
+              <label class="control-label">Storage Size</label>
+              <div class="controls">
+                <div class="row">
+                  <div class="col-sm-3 col-md-3">
+                    <select class="form-control" class="input-block-level" id="storSize" name="storSize">
+                      <option>500</option>
+                      <option>800</option>
+                      <option>1000</option>
+                      <option>1600</option>
+                      <option>2000</option>
+                    </select>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+            <!--<div class="form-group">
               <label for="focusedInput">Storage Type</label>
               <input class="form-control" id="storType" name="storType" type="text">
+            </div>-->
+
+            <div class="form-group">
+              <label class="control-label">Storage Type</label>
+              <div class="controls">
+                <div class="row">
+                  <div class="col-sm-3 col-md-3">
+                    <select class="form-control" class="input-block-level" id="storType" name="storType">
+                      <option>hard drive</option>
+                      <option>SSD</option>
+                    </select>
+                  </div>
+              </div>
             </div>
+          </div>
+
             </fieldset>
             <br />
               <input class="btn btn-info" name="addToWishlistButton" type="Submit" id="addToWishlistButton" value="Add to Wishlist" />

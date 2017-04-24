@@ -43,18 +43,23 @@ $result2=mysqli_query($conn, $sql2);
 if (mysqli_num_rows($result2)>0){
 	//echo "A default system already exists with that configuration!";
 	//echo "Added to your wishlist!";
+
+	$sqlCount="Select * from WishListItem";
+	$resultCount=mysqli_query($conn, $sqlCount);
+	$itemNo=(mysqli_num_rows($resultCount))+1;
+
 	addWishlist($itemNo, $chWanted, $memory, $storage, $diskSize);
 }
 else {
 	//create item number for new system; make sure it doesn't conflict
 	//add new system
-	$sqlCount="Select * from DefaultSystem";
+	$sqlCount="Select * from WishListItem";
 	$resultCount=mysqli_query($conn, $sqlCount);
 	$itemNumber=(mysqli_num_rows($resultCount))+1;
 
-	$sqlAdd="insert into DefaultSystem values('".$itemNumber."', '".$chWanted."', '".$storage."', ".$diskSize.", ".$memory.")";
-	$result2=mysqli_query($conn, $sqlAdd);
-		 addWishlist($itemNumber, $chWanted, $memory, $storage, $diskSize);
+	//$sqlAdd="insert into DefaultSystem values('".$itemNumber."', '".$chWanted."', '".$storage."', ".$diskSize.", ".$memory.")";
+	//$result2=mysqli_query($conn, $sqlAdd);
+	addWishlist($itemNumber, $chWanted, $memory, $storage, $diskSize);
 }
 $conn->close();
 }

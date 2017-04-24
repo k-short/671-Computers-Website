@@ -54,8 +54,8 @@
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['name'];?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="">Update Info</a></li>
-                <li><a href="orderHistory.php">Order History</a></li>
+                <li><a href="account.php">Update Info</a></li>
+                <li><a href="">Order History</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="logout.php">Logout</a></li>
               </ul>
@@ -66,7 +66,23 @@
     </nav>
 
     <div class="container">
+      <!--<table class="table">-->
+      <h2 class="sub-header" id="orderlistHeader">Orders</h2>
+       <div class="table-responsive">
+         <table class="table table-bordered" id="orderListTable">
 
+             <?php
+
+             include 'showOrders.php';
+
+             $user=$_SESSION['use'];
+             showOrders($user);
+
+
+             ?>
+
+           </table> <!-- Table -->
+       </div>
     </div> <!-- /container -->
 
 

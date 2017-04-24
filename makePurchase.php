@@ -15,7 +15,7 @@ $testQuantity=250;
 
  echo makePurchase($testCustomer, $testCCNumber, $testCHNumber, $testMemory, $testStorSize, $testStorType, $testQuantity);
 */
-function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth, $billingAddress, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity){
+function makePurchase($thisCustomer, $ccNumber, $cardType, $nameOnCard, $expYear, $expMonth, $billingAddress, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -28,9 +28,12 @@ function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth
 	}
 
 	//Check CC info
-	$ccStatus=validateCC($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth, $billingAddress);
+	$ccStatus = validateCC($thisCustomer, $ccNumber, $cardType, $nameOnCard, $expYear, $expMonth, $billingAddress);
 
-	if (ccStatus!="Card valid."){return ccStatus;}
+	if ($ccStatus!="Card valid.")
+	{
+		return $ccStatus;
+	}
 
 	//Check inventory levels
 	//decrement inventories
@@ -61,7 +64,7 @@ function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth
 	while($row = $result->fetch_assoc()) {
 		$storInventory = $row["storInventory"];
 	}
-  
+
 	$memNeeded=$quantity-$memInventory;
 	$storNeeded=$quantity-$storInventory;
 	$chNeeded=$quantity-$chInventory;
@@ -73,24 +76,24 @@ function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth
 
 		return("We have insufficient parts for your order.  To fill your order, we need ".$memNeeded." more memory units, ".$storNeeded." more storage units, and ".$chNeeded." more chassies.  Please try again with a different or smaller order.");
 	}
-	
+
 	//if we have enough of all parts, update inventory
 	$newMem=$memInventory-$quantity;
 	$newStor=$storInventory-$quantity;
 	$newCh=$chInventory-$quantity;
-	
+
 	$sqlUpdate=	"Update Memory
-		Set memInventory=".$newMem." 
+		Set memInventory=".$newMem."
 		Where memSize=".$thisMemory;
 	$result=mysqli_query($conn, $sqlUpdate);
 
 	$sqlUpdate="Update Chassis
-		Set chInventory=".$newCh."	
+		Set chInventory=".$newCh."
 		Where chNumber='".$thisChNumber."'";
 	$result=mysqli_query($conn, $sqlUpdate);
 
 	$sqlUpdate=	"Update Storage
-		Set storInventory=".$newStor." 
+		Set storInventory=".$newStor."
 		Where storSize=".$thisStorSize." AND storType='".$thisStorType."'";
 	$result=mysqli_query($conn, $sqlUpdate);
 
@@ -101,24 +104,24 @@ function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth
 
 	$unitPrice=updatePrice($thisChNumber, $thisMemory, $thisStorSize, $thisStorType);
 	$status="Processing";
-	
+
 	$sqlItemPurchase="insert into ItemPurchase values(
-		'".$purchaseID."', 
-		'".$thisChNumber."', 
-		".$thisMemory.", 
-		".$thisStorSize.", 
-		'".$thisStorType."', 
-		".$unitPrice.", 
-		".$quantity.", 
+		'".$purchaseID."',
+		'".$thisChNumber."',
+		".$thisMemory.",
+		".$thisStorSize.",
+		'".$thisStorType."',
+		".$unitPrice.",
+		".$quantity.",
 		'".$status."')";
 
 
 	$result=mysqli_query($conn, $sqlItemPurchase);
 
 	$sqlPurchase="insert into purchase values(
-		'".$thisCustomer."', 
-		Now(), 
-		'".$purchaseID."', 
+		'".$thisCustomer."',
+		Now(),
+		'".$purchaseID."',
 		'".$ccNumber."')";
 
 	$result=mysqli_query($conn, $sqlPurchase);
@@ -127,6 +130,3 @@ function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth
 
 
 ?>
-
-
-
