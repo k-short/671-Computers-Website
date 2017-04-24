@@ -53,7 +53,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <?php echo $_SESSION['name'];?> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Update Info</a></li>
+          
           <li role="separator" class="divider"></li>
           <li><a href="logout.php" >Logout</a></li>
         </ul>
@@ -78,7 +78,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
           <li ><a href="#">Storage</a></li>
         </ul>
       </li>
-      <li ><a href="sales.php">Sales Statistics</a></li>
+      
       <!--<li><a href="#">Export</a></li> -->
     </ul>
     <ul class="nav nav-sidebar">

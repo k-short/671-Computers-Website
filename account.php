@@ -47,7 +47,7 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="shop.php">Shop</a></li>
-            <li><a href="about.php">About</a></li>
+            
           </ul>
           <ul class="nav navbar-nav navbar-right">
 			<li><a href="wishlist.php">Wishlist</a></li>
