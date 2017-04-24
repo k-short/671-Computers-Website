@@ -26,40 +26,40 @@ $getchWanted=mysqli_query($conn, $sql1);
 if (mysqli_num_rows($getchWanted)>0){
 	while($row = $getchWanted->fetch_assoc()) {
 		$chWanted = $row["chNumber"];
-	}
-}
+
+    $sql2 = "Select *
+    	From DefaultSystem
+    	Where chNumber='".$chWanted."'".
+    	" AND storType='".$storage."'".
+    	" AND storSize=".$diskSize.
+    	" AND memSize=".$memory;
+
+    $result2=mysqli_query($conn, $sql2);
 
 
-$sql2 = "Select *
-	From DefaultSystem
-	Where chNumber='".$chWanted."'".
-	" AND storType='".$storage."'".
-	" AND storSize=".$diskSize.
-	" AND memSize=".$memory;
+    if (mysqli_num_rows($result2)>0){
+    	//echo "A default system already exists with that configuration!";
+    	//echo "Added to your wishlist!";
 
-$result2=mysqli_query($conn, $sql2);
+    	$sqlCount="Select * from WishListItem";
+    	$resultCount=mysqli_query($conn, $sqlCount);
+    	$itemNo=(mysqli_num_rows($resultCount))+1;
 
+    	addWishlist($itemNo, $chWanted, $memory, $storage, $diskSize);
+    }
+    else {
+    	//create item number for new system; make sure it doesn't conflict
+    	//add new system
+    	$sqlCount="Select * from WishListItem";
+    	$resultCount=mysqli_query($conn, $sqlCount);
+    	$itemNumber=(mysqli_num_rows($resultCount))+1;
 
-if (mysqli_num_rows($result2)>0){
-	//echo "A default system already exists with that configuration!";
-	//echo "Added to your wishlist!";
+    	//$sqlAdd="insert into DefaultSystem values('".$itemNumber."', '".$chWanted."', '".$storage."', ".$diskSize.", ".$memory.")";
+    	//$result2=mysqli_query($conn, $sqlAdd);
+    	addWishlist($itemNumber, $chWanted, $memory, $storage, $diskSize);
+    }
 
-	$sqlCount="Select * from WishListItem";
-	$resultCount=mysqli_query($conn, $sqlCount);
-	$itemNo=(mysqli_num_rows($resultCount))+1;
-
-	addWishlist($itemNo, $chWanted, $memory, $storage, $diskSize);
-}
-else {
-	//create item number for new system; make sure it doesn't conflict
-	//add new system
-	$sqlCount="Select * from WishListItem";
-	$resultCount=mysqli_query($conn, $sqlCount);
-	$itemNumber=(mysqli_num_rows($resultCount))+1;
-
-	//$sqlAdd="insert into DefaultSystem values('".$itemNumber."', '".$chWanted."', '".$storage."', ".$diskSize.", ".$memory.")";
-	//$result2=mysqli_query($conn, $sqlAdd);
-	addWishlist($itemNumber, $chWanted, $memory, $storage, $diskSize);
+  }
 }
 $conn->close();
 }
