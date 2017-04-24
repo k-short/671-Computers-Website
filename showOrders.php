@@ -42,7 +42,6 @@ if (mysqli_num_rows($result)>0){
 			<th>Storage Type</th>
 			<th>Price Per Unit</th>
       <th>Quantity</th>
-      <th>Status</th>
 		</tr>
 	</thead>";
 
@@ -61,8 +60,7 @@ if (mysqli_num_rows($result)>0){
 			<td>" . $row["storSize"] . "</td>
 			<td>" . $row["storType"] . "</td>
       <td>" . $row["price"] . "</td>
-      <td>" . $row["quantity"] . "</td>
-      <td>" . $row["purchaseStatus"] . "</td></tr></tbody>";
+      <td>" . $row["quantity"] . "</td></tr></tbody>";
   }	//end of while loop
 
 } else {
