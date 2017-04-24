@@ -2,6 +2,7 @@
 <?php
 
 include 'updatePrice.php';
+include 'validateCC.php';
 //test code
 /*
 $testCustomer="12345";
@@ -14,7 +15,7 @@ $testQuantity=250;
 
  echo makePurchase($testCustomer, $testCCNumber, $testCHNumber, $testMemory, $testStorSize, $testStorType, $testQuantity);
 */
-function makePurchase($thisCustomer, $ccNumber, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity){
+function makePurchase($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth, $billingAddress, $thisChNumber, $thisMemory, $thisStorSize, $thisStorType, $quantity){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -27,6 +28,9 @@ function makePurchase($thisCustomer, $ccNumber, $thisChNumber, $thisMemory, $thi
 	}
 
 	//Check CC info
+	$ccStatus=validateCC($thisCustomer, $ccNumber, $nameOnCard, $expYear, $expMonth, $billingAddress);
+
+	if (ccStatus!="Card valid."){return ccStatus;}
 
 	//Check inventory levels
 	//decrement inventories
@@ -118,9 +122,11 @@ function makePurchase($thisCustomer, $ccNumber, $thisChNumber, $thisMemory, $thi
 		'".$ccNumber."')";
 
 	$result=mysqli_query($conn, $sqlPurchase);
-
+	return("Purchase Successful!");
 }	//end function
 
 
 ?>
+
+
 
