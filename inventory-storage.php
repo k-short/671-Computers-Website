@@ -100,7 +100,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="storSizeInput">Storage Size: </label>
           <div class="form-group">
-            <input type="text" id="storSizeInput" name="storSizeInput"></input>
+            <input type="number" id="storSizeInput" name="storSizeInput"></input>
           </div>
         </form>
 
@@ -114,12 +114,12 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="invInput">New Inventory: </label>
           <div class="form-group">
-            <input type="text" id="sInvInput" name="sInvInput"></input>
+            <input type="number" id="sInvInput" name="sInvInput"></input>
           </div>
         </form>
 
 
-      <button id="updateSInv" name="updateSInv">Update</button>
+      <button class="btn btn-info" id="updateSInv" name="updateSInv">Update</button>
       <h5 id="updateResponse" name="updateResponse"></h5>
     </div>
 </div>

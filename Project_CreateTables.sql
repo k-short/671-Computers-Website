@@ -4,9 +4,9 @@ use Project;
 
 create table Customer
         (cID        varchar(40),
-        cName        varchar(25),
-        email        varchar(25),
-        phone        varchar (8),
+        cName        varchar(40),
+        email        varchar(40),
+        phone        varchar (20),
         mailingAddress        varchar(50),
         primary key (cID));
 
@@ -95,7 +95,7 @@ create table DefaultSystem
         memSize                int,
         primary key (defaultNo),
         foreign key (chNumber) references Chassis(chNumber),
-        foreign key (memSize) references Memory(memSize));         
+        foreign key (memSize) references Memory(memSize));
 
 
 create table Memory
@@ -127,7 +127,7 @@ insert into Admin values ("admin-12345", "Mr. Admin");
 -- create sample chassises
 insert into Chassis values ("L700", "laptop", 2.5, 14, 5, 699.95, 8, 2000, 1, 100, 10);
 insert into Chassis values ("H900", "hybrid", 2.2, 12, 3, 895.98, 6, 1600, 1, 20, 2);
-insert into Chassis values ("T300", "tablet", 1.2, 8, .2, 280.75, 4, 1000, 0, 50, 5); 
+insert into Chassis values ("T300", "tablet", 1.2, 8, .2, 280.75, 4, 1000, 0, 50, 5);
 
 
 
@@ -163,7 +163,7 @@ insert into Storage values (500, "hard drive", 25.00, 500, 50);
 
 
 -- Create view
-create view DefaultFullInfo As        
+create view DefaultFullInfo As
         Select chNumber, style, processorSpeed, measures, weight, chPrice, defaultNo, Storage.storType, Storage.storSize, Memory.memSize, Memory.memPrice, Storage.storPrice
         From (DefaultSystem natural join Chassis natural join Memory), Storage
         Where DefaultSystem.storType=Storage.storType AND DefaultSystem.storSize=Storage.storSize;

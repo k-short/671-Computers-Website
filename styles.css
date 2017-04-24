@@ -1,9 +1,15 @@
-.vertical-center {
+.vertical-center2 {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
 
   display: flex;
   align-items: center;
+}
+
+.vertical-center{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {

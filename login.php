@@ -66,23 +66,21 @@ if(isset($_POST['login']))   // it checks whether the user clicked login button 
   </head>
 
   <body>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="container">
 	  <form method="post"  action="">
-		<div class="input-group col-md-4 col-md-offset-4 row.center vertical-center">
+		<div class="input-group col-md-4 col-md-offset-4 row.center">
 			<input type="text" name="user" class="form-control " placeholder="User ID" aria-label="...">
 			<div class="input-group-btn">
-			<!-- Button and dropdown menu -->
 				<button class="btn btn-default" name="login" type="submit" value="LOGIN">Login</button>
-
-				<ul id="divNewNotifications" class="dropdown-menu">
-					<li ><a>User</a></li>
-					<li ><a>Admin</a></li>
-				</ul>
 			</div>
 		</div>
 	  </form>
+    <br>
+    <h5 class="col-md-4 col-md-offset-4 row.center"><a href="newUser.php"> Create new account</h5>
     </div> <!-- /container -->
+
+
 
 
     <!-- Bootstrap core JavaScript

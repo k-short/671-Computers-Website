@@ -107,12 +107,12 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="invInput">New Inventory: </label>
           <div class="form-group">
-            <input type="text" id="cInvInput" name="cInvInput"></input>
+            <input type="number" id="cInvInput" name="cInvInput"></input>
           </div>
         </form>
 
 
-      <button id="updateCInv" name="updateCInv">Update</button>
+      <button class="btn btn-info" id="updateCInv" name="updateCInv">Update</button>
       <h5 id="updateResponse" name="updateResponse"></h5>
     </div>
 </div>

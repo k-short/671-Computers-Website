@@ -100,19 +100,19 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="memSize">Memory Size: </label>
           <div class="form-group">
-            <input type="text" id="memSizeInput" name="memSizeInput"></input>
+            <input type="number" id="memSizeInput" name="memSizeInput"></input>
           </div>
         </form>
 
       <form>
         <label for="invInput">New Inventory: </label>
           <div class="form-group">
-            <input type="text" id="mInvInput" name="mInvInput"></input>
+            <input type="number" id="mInvInput" name="mInvInput"></input>
           </div>
         </form>
 
 
-      <button id="updateMInv" name="updateMInv">Update</button>
+      <button class="btn btn-info" id="updateMInv" name="updateMInv">Update</button>
       <h5 id="updateResponse" name="updateResponse"></h5>
     </div>
 </div>
