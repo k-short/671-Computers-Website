@@ -53,7 +53,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <?php echo $_SESSION['name'];?> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
+
           <li role="separator" class="divider"></li>
           <li><a href="logout.php" >Logout</a></li>
         </ul>
@@ -78,7 +78,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
           <li ><a href="#">Storage</a></li>
         </ul>
       </li>
-      
+
       <!--<li><a href="#">Export</a></li> -->
     </ul>
     <ul class="nav nav-sidebar">
@@ -100,7 +100,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="storSizeInput">Storage Size: </label>
           <div class="form-group">
-            <input type="number" id="storSizeInput" name="storSizeInput"></input>
+            <input type="number" min="500" id="storSizeInput" name="storSizeInput"></input>
           </div>
         </form>
 
@@ -114,7 +114,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="invInput">New Inventory: </label>
           <div class="form-group">
-            <input type="number" id="sInvInput" name="sInvInput"></input>
+            <input type="number" min="0" id="sInvInput" name="sInvInput"></input>
           </div>
         </form>
 

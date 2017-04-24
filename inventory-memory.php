@@ -53,7 +53,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <?php echo $_SESSION['name'];?> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
+
           <li role="separator" class="divider"></li>
           <li><a href="logout.php" >Logout</a></li>
         </ul>
@@ -78,7 +78,7 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
           <li ><a href="inventory-storage.php">Storage</a></li>
         </ul>
       </li>
-      
+
       <!--<li><a href="#">Export</a></li> -->
     </ul>
     <ul class="nav nav-sidebar">
@@ -100,14 +100,14 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
       <form>
         <label for="memSize">Memory Size: </label>
           <div class="form-group">
-            <input type="number" id="memSizeInput" name="memSizeInput"></input>
+            <input type="number" min="2" id="memSizeInput" name="memSizeInput"></input>
           </div>
         </form>
 
       <form>
         <label for="invInput">New Inventory: </label>
           <div class="form-group">
-            <input type="number" id="mInvInput" name="mInvInput"></input>
+            <input type="number" min="0" id="mInvInput" name="mInvInput"></input>
           </div>
         </form>
 
