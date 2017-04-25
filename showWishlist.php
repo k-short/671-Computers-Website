@@ -46,8 +46,8 @@ if (mysqli_num_rows($result)>0){
 			<th>Weight</th>
 			<th>Measurement</th>
 			<th>Memory</th>
-			<th>Storage Type</th>
 			<th>Storage Size</th>
+			<th>Storage Type</th>
 			<th>Current Price</th>
 		</tr>
 	</thead>";
